@@ -45,16 +45,16 @@ export default {
 	},
 	methods: {
 		del: function (e) {
-			let index = e.detail.index;
+			let index = e.index;
 			this.fire('del', index);
 		},
 		edit: function (e) {
-			let index = e.detail.index;
+			let index = e.index;
 			this.fire('edit', index);
 		},
 		setDef: function (e) {
-			console.log('[ e ] >' + JSON.stringify(e));
-			let index = e.detail.index;
+			// console.log('[ e ] >' + JSON.stringify(e));
+			let index = e.index;
 			this.fire('setDefault', index);
 		},
 	},

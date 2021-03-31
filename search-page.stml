@@ -1,0 +1,380 @@
+<template name="QcPreSearchPage">
+  <view class="page">
+    <list-view id="lists" class="flex-1" cellTypeKey="Qckeys">
+      <cell cellType={this.props.cellType_1} class={"bg-fff " + this.lineHeight(0)}>
+        <view class=" width-100p">
+        <view class=" margin-left-14 margin-right-14 line flex-1 height-100p bg-fff disflex-v-center"
+          @click="cellType_1_click">
+          <text class="fz13">{item.name}</text>
+        </view>
+  </view>
+  </cell>
+  <cell cellType={this.props.cellType_2} class={"width-100p bg-f7f7f7 " +this.lineHeight(10)}>
+        <view class={"width-100p bg-fff margin-top-10 " + this.lineHeight()}>
+    <view class="margin-left-14 margin-right-14 line flex-1 bg-fff disflex-v-center height-100p">
+      <img src={this.props.cellType_2_img} alt="" class={" margin-right-5 " + this.icon()}>
+            <text class=" fz13">搜索"</text>
+      <text class="fz13">{item.name}</text>
+      <text class="fz13">"{this.props.cellType_2_text}</text>
+    </view>
+    </view>
+  </cell>
+  <cell cellType={this.props.cellType_3} class={"width-100p bg-fff " + this.lineHeight(0)} >
+    <view class=" margin-left-14 margin-right-14 line flex-1 height-100p bg-fff disflex-v-center" @click="
+    cellType_2_click">
+    <text class="fz13">{item.name}</text>
+    </view>
+  </cell>
+  </list-view>
+  </view>
+</template>
+
+<script>
+  export default {
+    name: "search-page",
+    installed() {},
+    updated() {
+      if (this.props.lists.length > 0) {
+        this.data.arr = this.props.lists;
+        document.getElementById("lists").load({
+          data: this.props.lists
+        });
+      } else {
+        document.getElementById("lists").scrollTo(0,0);
+      }
+    },
+    data() {
+      return {
+        arr: []
+      };
+    },
+    methods: {
+      icon: function () {
+        let str = "";
+        if (this.props.iconWidth) {
+          str = `width-${this.props.iconWidth}`;
+        } else {
+          str = "width-10";
+        }
+
+        if (this.props.iconHeight) {
+          str = `${str} height-${this.props.iconHeight}`;
+        } else {
+          str = str + " height-10";
+        }
+        return str;
+      },
+      cellType_1_click: function (e) {
+        let that = this;
+        let info = that.data.arr[e.index];
+        that.fire("cellTypeClick1", info);
+      },
+      cellType_2_click: function (e) {
+        let that = this;
+        let info = that.data.arr[e.index];
+        that.fire("cellTypeClick2", info);
+      },
+      lineHeight: function (num) {
+        return `height-${this.props.cellHeight + num}`;
+      }
+    }
+  };
+</script>
+
+<style scoped>
+
+
+.height-100p {
+    height: 100% 
+}
+  .fz13 {
+    font-size: 13px;
+  }
+
+  .margin-right-5 {
+    margin-right: 5px;
+  }
+
+  .disflex-v-center {
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .line {
+    border-bottom: 0.5px solid #ddd;
+    background: #eeeeee;
+  }
+
+  .margin-right-14 {
+    margin-right: 14px;
+  }
+
+  .margin-left-14 {
+    margin-left: 14px;
+  }
+
+  .width-100p {
+    width: 100%;
+  }
+
+  .bg-fff {
+    background: #fff;
+  }
+
+  .flex-1 {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+
+  .page {
+    height: 100%;
+    width: 100%;
+  }
+
+  .height-20 {
+    height: 20px;
+  }
+
+  .height-21 {
+    height: 21px;
+  }
+
+  .height-22 {
+    height: 22px;
+  }
+
+  .height-23 {
+    height: 23px;
+  }
+
+  .height-24 {
+    height: 24px;
+  }
+
+  .height-25 {
+    height: 25px;
+  }
+
+  .height-26 {
+    height: 26px;
+  }
+
+  .height-27 {
+    height: 27px;
+  }
+
+  .height-28 {
+    height: 28px;
+  }
+
+  .height-29 {
+    height: 29px;
+  }
+
+  .height-30 {
+    height: 30px;
+  }
+
+  .height-31 {
+    height: 31px;
+  }
+
+  .height-32 {
+    height: 32px;
+  }
+
+  .height-33 {
+    height: 33px;
+  }
+
+  .height-34 {
+    height: 34px;
+  }
+
+  .height-35 {
+    height: 35px;
+  }
+
+  .height-36 {
+    height: 36px;
+  }
+
+  .height-37 {
+    height: 37px;
+  }
+
+  .height-38 {
+    height: 38px;
+  }
+
+  .height-39 {
+    height: 39px;
+  }
+
+  .height-40 {
+    height: 40px;
+  }
+
+  .height-41 {
+    height: 41px;
+  }
+
+  .height-42 {
+    height: 42px;
+  }
+
+  .height-43 {
+    height: 43px;
+  }
+
+  .height-44 {
+    height: 44px;
+  }
+
+  .height-45 {
+    height: 45px;
+  }
+
+  .height-46 {
+    height: 46px;
+  }
+
+  .height-47 {
+    height: 47px;
+  }
+
+  .height-48 {
+    height: 48px;
+  }
+
+  .height-49 {
+    height: 49px;
+  }
+
+  .height-50 {
+    height: 50px;
+  }
+
+  .height-51 {
+    height: 51px;
+  }
+
+  .height-52 {
+    height: 52px;
+  }
+
+  .height-53 {
+    height: 53px;
+  }
+
+  .height-54 {
+    height: 54px;
+  }
+
+  .height-55 {
+    height: 55px;
+  }
+
+  .height-56 {
+    height: 56px;
+  }
+
+  .height-57 {
+    height: 57px;
+  }
+
+  .height-58 {
+    height: 58px;
+  }
+
+  .height-59 {
+    height: 59px;
+  }
+
+  .height-60 {
+    height: 60px;
+  }
+
+  .height-61 {
+    height: 61px;
+  }
+
+  .height-62 {
+    height: 62px;
+  }
+
+  .height-63 {
+    height: 63px;
+  }
+
+  .height-64 {
+    height: 64px;
+  }
+
+  .height-65 {
+    height: 65px;
+  }
+
+  .height-66 {
+    height: 66px;
+  }
+
+  .height-67 {
+    height: 67px;
+  }
+
+  .height-68 {
+    height: 68px;
+  }
+
+  .height-69 {
+    height: 69px;
+  }
+
+  .height-70 {
+    height: 70px;
+  }
+
+  .height-71 {
+    height: 71px;
+  }
+
+  .height-72 {
+    height: 72px;
+  }
+
+  .height-73 {
+    height: 73px;
+  }
+
+  .height-74 {
+    height: 74px;
+  }
+
+  .height-75 {
+    height: 75px;
+  }
+
+  .height-76 {
+    height: 76px;
+  }
+
+  .height-77 {
+    height: 77px;
+  }
+
+  .height-78 {
+    height: 78px;
+  }
+
+  .height-79 {
+    height: 79px;
+  }
+
+  .height-80 {
+    height: 80px;
+  }
+</style>

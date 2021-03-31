@@ -1,0 +1,88 @@
+<template name='MySwiper'>
+    <view class="flex-center swiper-box flex">
+        <swiper id="homeSwiper" class="bgfff swiper-style" autoplay onchange={this.onchange}>
+            <swiper-item>
+                <image src={item} mode="aspectFill" class="width-100p height-100p" @click='openDetail()'></image>
+            </swiper-item>
+        </swiper>
+        <view class="indicator">
+            <view v-for="(item,index) in this.props.lists" class={'indicator-item '+(index==this.data.current?' indicator-item-active':'indicator-item-normal')}></view>
+        </view>
+    </view>
+</template>
+<script>
+export default {
+    name: "MySwiper",
+    installed() {
+        var homeSwiper = document.getElementById("homeSwiper");
+        if (this.props.lists.length > 0) {
+            homeSwiper.load({
+            data: this.props.lists
+        });
+        }
+    },
+    data() {
+        return {
+            current: 0
+        };
+    },
+    methods: {
+        onchange(e) {
+            this.data.current = e.detail.current;
+        },
+        openDetail() {
+            var detail = {
+                current: this.data.current
+            };
+            this.fire("clickSwiper", detail);
+        }
+    }
+};
+</script>
+<style src="../../css/app.css" />
+<style scoped>
+.swiper-box {
+    width: 100%;
+    position: relative;
+}
+.swiper-style {
+    /* width: 345px; */
+    width: calc(100% - 30px);
+    margin-left: 15px;
+    margin-right: 15px;
+    height: 140px;
+    border-radius: 20px;
+}
+.bgfff {
+    background: #fff;
+}
+.page {
+    height: 100%;
+}
+.indicator {
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    bottom: 8px;
+}
+.indicator-item {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin: 3px;
+}
+.indicator-item-normal {
+    background-color: #ddd;
+    border-width: 1px;
+    border-color: #fff;
+    border-radius: 50%;
+}
+.indicator-item-active {
+    background-color: red;
+    border-width: 1px;
+    border-color: red;
+    border-radius: 50%;
+}
+</style>

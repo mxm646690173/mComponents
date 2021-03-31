@@ -1,0 +1,441 @@
+<template name='qcCountBotton'>
+	<view class="">
+		<button disabled={this.data.sec> 0 ? true : false } type='button' class={this.buttonClass()}
+			style={this.buttonStyle()} @click="startCount()">
+			{this.data.sec > 0 ? this.data.sec + 's' : this.props.countText}
+		</button>
+	</view>
+</template>
+<script>
+	export default {
+		name: "qcCountBotton",
+		install() {
+			let that = this;
+			api.addEventListener({
+				name: 'qcCountStart'
+			}, function (ret) {
+				that.count();
+			});
+
+			api.addEventListener({
+				name: 'qcCountEnd'
+			}, function (ret) {
+				clearTimeout(that.data.time);
+				that.data.sec = 0;
+			})
+		},
+		data() {
+			return {
+				sec: 0,
+				time:'',
+			};
+		},
+		methods: {
+			startCount: function () {
+				this.fire('startCount', {});
+			},
+			count: function () {
+				this.countdown(this.props.countTime);
+			},
+			countdown: function (time) {
+				if (time > 0) {
+					this.data.time = setTimeout(() => {
+						this.data.sec = time - 1;
+						this.countdown(this.data.sec);
+					}, 1000);
+				}
+			},
+			buttonClass: function () {
+				let str = `height-${this.props["height"]} font-size-${this.props["fontSize"]}`;
+				if (this.props["borderRadius"]) {
+					str = `${str} border-radius-${this.props["borderRadius"]}`;
+				}
+				if (!this.props["backgroundColor"]) {
+					str = `${str} bg-fff`;
+				}
+				return str;
+			},
+			buttonStyle: function () {
+				let str = "";
+				if (this.props["isShowBorder"]) {
+					str = `border:0.5px solid ${this.props.borderColor};`;
+				}
+				if (this.props["color"]) {
+					str = `${str}color:${this.props.color};`;
+				}
+				if (this.props["backgroundColor"]) {
+					str = `${str}backgroundColor:${this.props.backgroundColor};`;
+				}
+				if (this.props["padding"]) {
+					str = `${str}paddingLeft:${this.props["padding"]}px;paddingRight:${this.props["padding"]}px`
+				}
+				return str;
+			}
+		}
+	};
+</script>
+<style scoped>
+	.bg-fff {
+		background: #fff;
+	}
+
+	.padding-left-0 {
+		padding-left: 0;
+	}
+
+	.padding-right-0 {
+		padding-right: 0;
+	}
+
+	.border-line {
+		border-width: 0.5px;
+	}
+
+	.height-20 {
+		height: 20px;
+	}
+
+	.height-21 {
+		height: 21px;
+	}
+
+	.height-22 {
+		height: 22px;
+	}
+
+	.height-23 {
+		height: 23px;
+	}
+
+	.height-24 {
+		height: 24px;
+	}
+
+	.height-25 {
+		height: 25px;
+	}
+
+	.height-26 {
+		height: 26px;
+	}
+
+	.height-27 {
+		height: 27px;
+	}
+
+	.height-28 {
+		height: 28px;
+	}
+
+	.height-29 {
+		height: 29px;
+	}
+
+	.height-30 {
+		height: 30px;
+	}
+
+	.height-31 {
+		height: 31px;
+	}
+
+	.height-32 {
+		height: 32px;
+	}
+
+	.height-33 {
+		height: 33px;
+	}
+
+	.height-34 {
+		height: 34px;
+	}
+
+	.height-35 {
+		height: 35px;
+	}
+
+	.height-36 {
+		height: 36px;
+	}
+
+	.height-37 {
+		height: 37px;
+	}
+
+	.height-38 {
+		height: 38px;
+	}
+
+	.height-39 {
+		height: 39px;
+	}
+
+	.height-40 {
+		height: 40px;
+	}
+
+	.border-radius-1 {
+		border-radius: 1px;
+	}
+
+	.border-radius-2 {
+		border-radius: 2px;
+	}
+
+	.border-radius-3 {
+		border-radius: 3px;
+	}
+
+	.border-radius-4 {
+		border-radius: 4px;
+	}
+
+	.border-radius-5 {
+		border-radius: 5px;
+	}
+
+	.border-radius-6 {
+		border-radius: 6px;
+	}
+
+	.border-radius-7 {
+		border-radius: 7px;
+	}
+
+	.border-radius-8 {
+		border-radius: 8px;
+	}
+
+	.border-radius-9 {
+		border-radius: 9px;
+	}
+
+	.border-radius-10 {
+		border-radius: 10px;
+	}
+
+	.border-radius-11 {
+		border-radius: 11px;
+	}
+
+	.border-radius-12 {
+		border-radius: 12px;
+	}
+
+	.border-radius-13 {
+		border-radius: 13px;
+	}
+
+	.border-radius-14 {
+		border-radius: 14px;
+	}
+
+	.border-radius-15 {
+		border-radius: 15px;
+	}
+
+	.border-radius-16 {
+		border-radius: 16px;
+	}
+
+	.border-radius-17 {
+		border-radius: 17px;
+	}
+
+	.border-radius-18 {
+		border-radius: 18px;
+	}
+
+	.border-radius-19 {
+		border-radius: 19px;
+	}
+
+	.border-radius-20 {
+		border-radius: 20px;
+	}
+
+	.border-radius-21 {
+		border-radius: 21px;
+	}
+
+	.border-radius-22 {
+		border-radius: 22px;
+	}
+
+	.border-radius-23 {
+		border-radius: 23px;
+	}
+
+	.border-radius-24 {
+		border-radius: 24px;
+	}
+
+	.border-radius-25 {
+		border-radius: 25px;
+	}
+
+	.border-radius-26 {
+		border-radius: 26px;
+	}
+
+	.border-radius-27 {
+		border-radius: 27px;
+	}
+
+	.border-radius-28 {
+		border-radius: 28px;
+	}
+
+	.border-radius-29 {
+		border-radius: 29px;
+	}
+
+	.border-radius-30 {
+		border-radius: 30px;
+	}
+
+	.border-radius-31 {
+		border-radius: 31px;
+	}
+
+	.border-radius-32 {
+		border-radius: 32px;
+	}
+
+	.border-radius-33 {
+		border-radius: 33px;
+	}
+
+	.border-radius-34 {
+		border-radius: 34px;
+	}
+
+	.border-radius-35 {
+		border-radius: 35px;
+	}
+
+	.border-radius-36 {
+		border-radius: 36px;
+	}
+
+	.border-radius-37 {
+		border-radius: 37px;
+	}
+
+	.border-radius-38 {
+		border-radius: 38px;
+	}
+
+	.border-radius-39 {
+		border-radius: 39px;
+	}
+
+	.border-radius-40 {
+		border-radius: 40px;
+	}
+
+	.border-radius-41 {
+		border-radius: 41px;
+	}
+
+	.border-radius-42 {
+		border-radius: 42px;
+	}
+
+	.border-radius-43 {
+		border-radius: 43px;
+	}
+
+	.border-radius-44 {
+		border-radius: 44px;
+	}
+
+	.border-radius-45 {
+		border-radius: 45px;
+	}
+
+	.border-radius-46 {
+		border-radius: 46px;
+	}
+
+	.border-radius-47 {
+		border-radius: 47px;
+	}
+
+	.border-radius-48 {
+		border-radius: 48px;
+	}
+
+	.border-radius-49 {
+		border-radius: 49px;
+	}
+
+	.border-radius-50 {
+		border-radius: 50px;
+	}
+
+	.font-size-5 {
+		font-size: 5px;
+	}
+
+	.font-size-6 {
+		font-size: 6px;
+	}
+
+	.font-size-7 {
+		font-size: 7px;
+	}
+
+	.font-size-8 {
+		font-size: 8px;
+	}
+
+	.font-size-9 {
+		font-size: 9px;
+	}
+
+	.font-size-10 {
+		font-size: 10px;
+	}
+
+	.font-size-11 {
+		font-size: 11px;
+	}
+
+	.font-size-12 {
+		font-size: 12px;
+	}
+
+	.font-size-13 {
+		font-size: 13px;
+	}
+
+	.font-size-14 {
+		font-size: 14px;
+	}
+
+	.font-size-15 {
+		font-size: 15px;
+	}
+
+	.font-size-16 {
+		font-size: 16px;
+	}
+
+	.font-size-17 {
+		font-size: 17px;
+	}
+
+	.font-size-18 {
+		font-size: 18px;
+	}
+
+	.font-size-19 {
+		font-size: 19px;
+	}
+
+	.font-size-20 {
+		font-size: 20px;
+	}
+</style>
