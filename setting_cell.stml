@@ -1,0 +1,68 @@
+<template name="setting-cell">
+	<view class="width-100p">
+		<view class="width-100p bg-fff">
+			<view
+				class="margin-left-14 margin-right-14 bottom-line height-48 disflex-v-center flex-1 disflex-h-space-between" @click={this.props['onclick']}>
+				<text class="font-r fz13">{{this.props['title']}}</text>
+        <view class="flex-1"></view>
+        <text class="fz13 c999">{{this.props['rightText']}}</text>
+				<img src="../../image/icon-108.png" alt="" class="width-13 height-13 margin-left-5">
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+export default {
+	name: 'setting-cell',
+}
+</script>
+
+<style scoped>
+.c999{
+  color: #999;
+}
+.margin-left-5{
+  margin-left: 5px;
+}
+.height-13 {
+	height: 13px;
+}
+.width-13 {
+	width: 13px;
+}
+.fz13 {
+	font-size: 13px;
+}
+.font-r {
+	font-family: PingFangSC-Regular;
+}
+.disflex-h-space-between {
+	justify-content: space-between;
+}
+.flex-1 {
+	flex: 1;
+}
+.disflex-v-center {
+	flex-flow: row;
+	align-items: center;
+}
+.height-48 {
+	height: 48px;
+}
+.bottom-line {
+	border-bottom: 0.5px solid #eee;
+}
+.width-100p {
+	width: 100%;
+}
+.bg-fff {
+	background: #fff;
+}
+.margin-left-14 {
+	margin-left: 14px;
+}
+.margin-right-14 {
+	margin-right: 14px;
+}
+</style>
