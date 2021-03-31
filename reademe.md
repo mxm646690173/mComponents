@@ -16,11 +16,15 @@
 
 ### 用法
 
-`<setting-cell title="意见反馈" :rightText="version" onclick="test()" />`
+~~~js
+<setting-cell title="意见反馈" :rightText="version" onclick="test()" />
+~~~
 
 ### 引入
 
-`import settingCell from '../../components/mComponents/setting_cell.stml'`
+~~~js
+import settingCell from '../../components/mComponents/setting_cell.stml'
+~~~
 
 ### 备注
 
@@ -36,11 +40,14 @@ rightText 右侧箭头左边的文字,不填为不显示
 
 ### 用法
 
-`<goods-cell :list="list" @nextList="nextList()" @openGoods="openGoods" />`
+~~~js
+<goods-cell :list="list" @nextList="nextList()" @openGoods="openGoods" />
+~~~
 
 ### 引入
-`import goodsCell from '../../components/mComponents/goods-cell.stml'`
-
+~~~js
+import goodsCell from '../../components/mComponents/goods-cell.stml'
+~~~
 ### 备注
 list => 传入的对象  => 包含 数据列表,列表下方待加载文字
 
@@ -58,10 +65,15 @@ list => 传入的对象  => 包含 数据列表,列表下方待加载文字
 
 ### 用法
 
-`<address-cell :item="item" @setDefault="setDefault" @edit="edit" @del="del" />`
+~~~js
+<address-cell :item="item" @setDefault="setDefault" @edit="edit" @del="del" />
+~~~
 
 ### 引入
-`import AddressCell from '../../components/mComponents/address-cell.stml'`
+
+~~~js
+import AddressCell from '../../components/mComponents/address-cell.stml'
+~~~
 
 ### 备注
 
@@ -84,11 +96,15 @@ item => 传入对象 => 单条记录
 
 ### 用法
 
-`<QcPreSearchPage :lists="this.data.lists" cellType_1='goods' cellType_2="cateName" cellType_3="cate"cellType_2_text="分类" :cellHeight="48" cellType_2_img="../../image/o-001.png" oncellTypeClick1="searh_goods"oncellTypeClick2="search_cate" :iconWidth="10" :iconHeight="10"></QcPreSearchPage>`
+~~~js
+<QcPreSearchPage :lists="this.data.lists" cellType_1='goods' cellType_2="cateName" cellType_3="cate"cellType_2_text="分类" :cellHeight="48" cellType_2_img="../../image/o-001.png" oncellTypeClick1="searh_goods"oncellTypeClick2="search_cate" :iconWidth="10" :iconHeight="10" />
+~~~
 
 ### 引入
 
-`import SearchPage from "../../components/mComponents/search-page.stml";`
+~~~js
+import SearchPage from "../../components/mComponents/search-page.stml";
+~~~
 
 ### props 属性
   属性|类型|说明|是否必填|默认值|值
@@ -126,11 +142,16 @@ cellTypeClick2   单击预搜索关键词列表2事件
 
 
 ### 用法
-`<home-swiper :lists="goodsImg" @qcSwiperIndex="getSwiperIndex" :autoplay={false} mode="scaleToFill" :interval={5000}></home-swiper>`
+
+~~~js
+<home-swiper :lists="goodsImg" @qcSwiperIndex="getSwiperIndex" :autoplay={false} mode="scaleToFill" :interval={5000} />
+~~~
 
 ### 引入
 
-`import homeSwiper from "../../components/mComponents/home-swiper.stml";`
+~~~js
+import homeSwiper from "../../components/mComponents/home-swiper.stml";
+~~~
 
 ###  事件
 qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 swiper 的 分页器
@@ -160,11 +181,15 @@ qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 
 
 
 ### 用法
-`<count-botton :countTime="60" padding="14" :height="29" :borderRadius="4" :fontSize="13" :isShowBorder={true} backgroundColor="#fff" borderColor="#ff5301" countText="获取验证码" color="#ff5301" onstartCount="this.startCount"></count-botton>`
+~~~js
+<count-botton :countTime="60" padding="14" :height="29" :borderRadius="4" :fontSize="13" :isShowBorder={true} backgroundColor="#fff" borderColor="#ff5301" countText="获取验证码" color="#ff5301" onstartCount="this.startCount" />
+~~~
 
 ### 引入
 
-`import countBotton from "../../components/mComponents/count-botton.stml";`
+~~~js
+import countBotton from "../../components/mComponents/count-botton.stml";
+~~~
 
 ###  点击发送事件
 
