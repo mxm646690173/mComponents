@@ -1,4 +1,4 @@
-<template name='qcCountBotton'>
+<template name='count-botton'>
 	<view class="">
 		<button disabled={this.data.sec> 0 ? true : false } type='button' class={this.buttonClass()}
 			style={this.buttonStyle()} @click="startCount()">
@@ -8,7 +8,7 @@
 </template>
 <script>
 	export default {
-		name: "qcCountBotton",
+		name: "count-botton",
 		install() {
 			let that = this;
 			api.addEventListener({

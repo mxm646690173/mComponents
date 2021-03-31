@@ -126,11 +126,11 @@ cellTypeClick2   单击预搜索关键词列表2事件
 
 
 ### 用法
-`<qcPhotoSwiper :lists="goodsImg" @qcSwiperIndex="getSwiperIndex" :autoplay={false} mode="scaleToFill" :interval={5000}></qcPhotoSwiper>`
+`<home-swiper :lists="goodsImg" @qcSwiperIndex="getSwiperIndex" :autoplay={false} mode="scaleToFill" :interval={5000}></home-swiper>`
 
 ### 引入
 
-`import SearchPage from "../../components/mComponents/home-swiper.stml";`
+`import homeSwiper from "../../components/mComponents/home-swiper.stml";`
 
 ###  事件
 qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 swiper 的 分页器
@@ -160,11 +160,11 @@ qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 
 
 
 ### 用法
-`<qcCountBotton :countTime="60" padding="14" :height="29" :borderRadius="4" :fontSize="13" :isShowBorder={true} backgroundColor="#fff" borderColor="#ff5301" countText="获取验证码" color="#ff5301" onstartCount="this.startCount"></qcCountBotton>`
+`<count-botton :countTime="60" padding="14" :height="29" :borderRadius="4" :fontSize="13" :isShowBorder={true} backgroundColor="#fff" borderColor="#ff5301" countText="获取验证码" color="#ff5301" onstartCount="this.startCount"></count-botton>`
 
 ### 引入
 
-`import SearchPage from "../../components/mComponents/count-botton.stml";`
+`import countBotton from "../../components/mComponents/count-botton.stml";`
 
 ###  点击发送事件
 
