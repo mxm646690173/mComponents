@@ -1,6 +1,6 @@
-# 请把最底层的mComponents文件夹放入项目的components文件夹内
+# 请把 m-only-cpt 文件夹放入项目的components文件夹内
 
-
+***
 
 ## settingCell 组件 
 
