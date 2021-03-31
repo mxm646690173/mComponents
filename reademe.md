@@ -1,6 +1,6 @@
 # 请把最底层的mComponents文件夹放入项目的components文件夹内
 
------
+
 
 ## settingCell 组件 
 
@@ -26,7 +26,6 @@
 
 rightText 右侧箭头左边的文字,不填为不显示
 
------
 
 ## goods-cell 组件
 
@@ -48,7 +47,6 @@ list => 传入的对象  => 包含 数据列表,列表下方待加载文字
 
 @openGoods => 点击item 事件
 
------
 
 ## address-cell 组件
 
@@ -74,7 +72,6 @@ item => 传入对象 => 单条记录
 
 @del 点击删除按钮事件 => 只能取到 index => e.detail
 
------
 
 ## search-page 组件
 
@@ -108,7 +105,6 @@ cellTypeClick1   单击预搜索关键词列表1事件
 
 cellTypeClick2   单击预搜索关键词列表2事件
 
------
 
 ## home-swiper 组件
 
@@ -135,7 +131,6 @@ cellTypeClick2   单击预搜索关键词列表2事件
 ###  事件
 qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 swiper 的 分页器
 
------
 
 ## count-botton 组件
 
