@@ -48,6 +48,7 @@ list => 传入的对象  => 包含 数据列表,列表下方待加载文字
 
 @openGoods => 点击item 事件
 
+***
 
 ## address-cell 组件
 
@@ -73,6 +74,7 @@ item => 传入对象 => 单条记录
 
 @del 点击删除按钮事件 => 只能取到 index => e.detail
 
+***
 
 ## search-page 组件
 
@@ -106,6 +108,7 @@ cellTypeClick1   单击预搜索关键词列表1事件
 
 cellTypeClick2   单击预搜索关键词列表2事件
 
+***
 
 ## home-swiper 组件
 
@@ -132,6 +135,7 @@ cellTypeClick2   单击预搜索关键词列表2事件
 ###  事件
 qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 swiper 的 分页器
 
+***
 
 ## count-botton 组件
 
@@ -171,3 +175,5 @@ startCount   用来让你向自己的服务器请求发送短信验证码操作
 qcCountStart    用来让启动倒计时
 
 qcCountEnd      用来终止倒计时
+
+***
