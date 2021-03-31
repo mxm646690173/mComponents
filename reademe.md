@@ -23,7 +23,7 @@
 ### 引入
 
 ~~~js
-import settingCell from '../../components/mComponents/setting_cell.stml'
+import settingCell from '../../components/m-only-cpt/setting_cell.stml'
 ~~~
 
 ### 备注
@@ -46,7 +46,7 @@ rightText 右侧箭头左边的文字,不填为不显示
 
 ### 引入
 ~~~js
-import goodsCell from '../../components/mComponents/goods-cell.stml'
+import goodsCell from '../../components/m-only-cpt/goods-cell.stml'
 ~~~
 
 ### 备注
@@ -77,7 +77,7 @@ list => 传入的对象  => 包含 数据列表,列表下方待加载文字  (�
 ### 引入
 
 ~~~js
-import AddressCell from '../../components/mComponents/address-cell.stml'
+import AddressCell from '../../components/m-only-cpt/address-cell.stml'
 ~~~
 
 ### 备注
@@ -112,7 +112,7 @@ name => 收件人姓名   tel=>联系电话   map_address=> 地图定位地址  
 ### 引入
 
 ~~~js
-import SearchPage from "../../components/mComponents/search-page.stml";
+import SearchPage from "../../components/m-only-cpt/search-page.stml";
 ~~~
 
 ### props 属性
@@ -159,7 +159,7 @@ cellTypeClick2   单击预搜索关键词列表2事件
 ### 引入
 
 ~~~js
-import homeSwiper from "../../components/mComponents/home-swiper.stml";
+import homeSwiper from "../../components/m-only-cpt/home-swiper.stml";
 ~~~
 
 ###  事件
@@ -197,7 +197,7 @@ qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 
 ### 引入
 
 ~~~js
-import countBotton from "../../components/mComponents/count-botton.stml";
+import countBotton from "../../components/m-only-cpt/count-botton.stml";
 ~~~
 
 ###  点击发送事件
