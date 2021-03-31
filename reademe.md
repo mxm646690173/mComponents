@@ -48,8 +48,13 @@ rightText 右侧箭头左边的文字,不填为不显示
 ~~~js
 import goodsCell from '../../components/mComponents/goods-cell.stml'
 ~~~
+
 ### 备注
-list => 传入的对象  => 包含 数据列表,列表下方待加载文字
+list => 传入的对象  => 包含 数据列表,列表下方待加载文字  (可针对不同的项目,进行修改组件内的字段)
+                             ↑数据列表字段 
+标题:name   图片:img_url   显示价格:sku_price  划线价:sku_original_price  显示包邮字段 :is_free_shipping
+商品标签:goods_tag_name    服务标签:service_tag_names(数组,显示为 第一 个)
+
 
 @nextList => 加载下一页的事件
 
@@ -66,7 +71,7 @@ list => 传入的对象  => 包含 数据列表,列表下方待加载文字
 ### 用法
 
 ~~~html
-<address-cell :item="item" @setDefault="setDefault" @edit="edit" @del="del" />
+<address-cell :list="list" @setDefault="setDefault" @edit="edit" @del="del" @nextList="addPage()" />
 ~~~
 
 ### 引入
@@ -78,13 +83,17 @@ import AddressCell from '../../components/mComponents/address-cell.stml'
 ### 备注
 
 
-item => 传入对象 => 单条记录
+list => 传入数组 => 包含字段:
+
+name => 收件人姓名   tel=>联系电话   map_address=> 地图定位地址  is_defaulted=> 是否为默认地址
 
 @setDefault 设置为默认地址事件 => 只能取到 index => e.detail
 
 @edit 点击修改按钮事件 => 只能取到 index => e.detail
 
 @del 点击删除按钮事件 => 只能取到 index => e.detail
+
+@nextList  加载下一页内容事件
 
 ***
 

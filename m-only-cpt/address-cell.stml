@@ -1,5 +1,5 @@
 <template>
-	<list-view id="addressList" scroll-y class="bg-f7 flex-1">
+	<list-view id="addressList" scroll-y class="bg-f7 flex-1" lower-threshold @scrolltolower="nextList">
 		<cell class="margin-bottom-10">
 			<view class="bg-fff width-100p">
 				<view class="height-61 flex-1 margin-left-14 margin-right-14 bottom-line disflex-v-center">
@@ -31,12 +31,7 @@ export default {
 
 		}
 	},
-  installed(){
-		console.log('[ 31 ] >' + JSON.stringify(this.props.list))
-
-  },
 	updated() {
-		console.log('[ 39 ] >' + JSON.stringify(this.props.list))
 		if (this.props['list'].length > 0) {
 			document.getElementById('addressList').load({
 				data: this.props.list
@@ -44,6 +39,9 @@ export default {
 		}
 	},
 	methods: {
+		nextList:function(){
+			this.fire('nextList');
+		},
 		del: function (e) {
 			let index = e.index;
 			this.fire('del', index);
@@ -53,7 +51,6 @@ export default {
 			this.fire('edit', index);
 		},
 		setDef: function (e) {
-			// console.log('[ e ] >' + JSON.stringify(e));
 			let index = e.index;
 			this.fire('setDefault', index);
 		},
