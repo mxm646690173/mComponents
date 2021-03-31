@@ -26,6 +26,7 @@
 
 rightText 右侧箭头左边的文字,不填为不显示
 
+***
 
 ## goods-cell 组件
 
