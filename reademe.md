@@ -16,7 +16,7 @@
 
 ## 引入
 
-`import settingCell from '../../components/setting_cell/setting_cell.stml'`
+`import settingCell from '../../components/mComponents/setting_cell.stml'`
 
 ## 备注
 
@@ -34,7 +34,7 @@ rightText 右侧箭头左边的文字,不填为不显示
 `<goods-cell :list="list" @nextList="nextList()" @openGoods="openGoods" />`
 
 ## 引入
-`import goodsCell from '../../components/cell/goods-cell.stml'`
+`import goodsCell from '../../components/mComponents/goods-cell.stml'`
 
 ## 备注
 list => 传入的对象  => 包含 数据列表,列表下方待加载文字
@@ -55,7 +55,7 @@ list => 传入的对象  => 包含 数据列表,列表下方待加载文字
 `<address-cell :item="item" @setDefault="setDefault" @edit="edit" @del="del" />`
 
 ## 引入
-`import AddressCell from '../../components/cell/address-cell.stml'`
+`import AddressCell from '../../components/mComponents/address-cell.stml'`
 
 ## 备注
 
@@ -81,7 +81,7 @@ item => 传入对象 => 单条记录
 
 ## 引入
 
-`import SearchPage from "../../components/search-page.stml";`
+`import SearchPage from "../../components/mComponents/search-page.stml";`
 
 ## props 属性
   属性|类型|说明|是否必填|默认值|值
@@ -98,4 +98,71 @@ item => 传入对象 => 单条记录
 
 ##  事件
 cellTypeClick1   单击预搜索关键词列表1事件
+
 cellTypeClick2   单击预搜索关键词列表2事件
+
+
+# home-swiper 组件
+
+## 样式
+
+![](image/home-swiper.png)
+
+### props 属性
+  |属性                 |类型        |说明                               |是否必填         |默认值                                  |值
+  :---:|:--:|:---:|:---:|:---:|:---:
+  |lists                arr          传入已经整理好的数组                  是               无                                      [...]
+  |autoplay             boolean      轮播图是否自动播放                    否               false                                   false,true
+  |mode                 String       图片裁剪、缩放的方式(同image标签)       否              scaleToFill                             image标签内的mode
+  |interval             Number       图片自动切换时间间隔                   否               5000                                    毫秒
+
+
+## 用法
+`<qcPhotoSwiper :lists="goodsImg" @qcSwiperIndex="getSwiperIndex" :autoplay={false} mode="scaleToFill" :interval={5000}></qcPhotoSwiper>`
+
+## 引入
+
+`import SearchPage from "../../components/mComponents/home-swiper.stml";`
+
+##  事件
+qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 swiper 的 分页器
+
+
+# count-botton 组件
+
+## 样式
+
+![](image/count-botton.png)
+
+## props 属性
+  |属性                 |类型        |说明                               |是否必填         |默认值                                  |值
+  :---:|:--:|:---:|:---:|:---:|:---:
+  |countTime            Number      传入倒计时时间                         是               无                                      0~999
+  |padding              Number      按钮距左距右距离                       是               默认avm button padding宽度                任意
+  |height               Number      按钮高度                              是               无                                      20px-40px
+  |borderRadius         Number      按钮圆角                              否               无                                      1px-50px
+  |fontSize             Number      按钮字体大小                           否               系统字体大小                              5px-20px
+  |isShowBorder         boolean     按钮是否有0.5px边框                    否               false                                   true,false
+  |backgroundColor      String      按钮背景颜色                           否               #FFF                                    16进制颜色代码
+  |borderColor          String      按钮边框颜色                          当有边框是必填      无                                      16进制颜色代码
+  |countText            String      按钮文案                              是                无                                     任意   
+  |color                String      按钮颜色                              否               #000                                    16进制颜色代码
+  
+
+
+## 用法
+`<qcCountBotton :countTime="60" padding="14" :height="29" :borderRadius="4" :fontSize="13" :isShowBorder={true} backgroundColor="#fff" borderColor="#ff5301" countText="获取验证码" color="#ff5301" onstartCount="this.startCount"></qcCountBotton>`
+
+## 引入
+
+`import SearchPage from "../../components/mComponents/count-botton.stml";`
+
+##  点击发送事件
+
+startCount   用来让你向自己的服务器请求发送短信验证码操作
+
+##  接收事件
+
+qcCountStart    用来让启动倒计时
+
+qcCountEnd      用来终止倒计时
