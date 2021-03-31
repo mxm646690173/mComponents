@@ -111,10 +111,10 @@ cellTypeClick2   单击预搜索关键词列表2事件
 ### props 属性
   |属性                 |类型        |说明                               |是否必填         |默认值                                  |值
   :---:|:--:|:---:|:---:|:---:|:---:
-  |lists                arr          传入已经整理好的数组                  是               无                                      [...]
-  |autoplay             boolean      轮播图是否自动播放                    否               false                                   false,true
-  |mode                 String       图片裁剪、缩放的方式(同image标签)       否              scaleToFill                             image标签内的mode
-  |interval             Number       图片自动切换时间间隔                   否               5000                                    毫秒
+  |lists                |arr          |传入已经整理好的数组                  |是               |无                                      |[...]
+  |autoplay             |boolean      |轮播图是否自动播放                    |否               |false                                   |false,true
+  |mode                 |String       |图片裁剪、缩放的方式(同image标签)       |否              |scaleToFill                             |image标签内的mode
+  |interval             |Number       |图片自动切换时间间隔                   |否               |5000                                    |毫秒
 
 
 ## 用法
@@ -137,16 +137,16 @@ qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 
 ## props 属性
   |属性                 |类型        |说明                               |是否必填         |默认值                                  |值
   :---:|:--:|:---:|:---:|:---:|:---:
-  |countTime            Number      传入倒计时时间                         是               无                                      0~999
-  |padding              Number      按钮距左距右距离                       是               默认avm button padding宽度                任意
-  |height               Number      按钮高度                              是               无                                      20px-40px
-  |borderRadius         Number      按钮圆角                              否               无                                      1px-50px
-  |fontSize             Number      按钮字体大小                           否               系统字体大小                              5px-20px
-  |isShowBorder         boolean     按钮是否有0.5px边框                    否               false                                   true,false
-  |backgroundColor      String      按钮背景颜色                           否               #FFF                                    16进制颜色代码
-  |borderColor          String      按钮边框颜色                          当有边框是必填      无                                      16进制颜色代码
-  |countText            String      按钮文案                              是                无                                     任意   
-  |color                String      按钮颜色                              否               #000                                    16进制颜色代码
+  |countTime            |Number      |传入倒计时时间                         |是               |无                                      |0~999
+  |padding              |Number      |按钮距左距右距离                       |是               |默认avm button padding宽度                |任意
+  |height               |Number      |按钮高度                              |是               |无                                      |20px-40px
+  |borderRadius         |Number      |按钮圆角                              |否               |无                                      |1px-50px
+  |fontSize             |Number      |按钮字体大小                           |否               |系统字体大小                              |5px-20px
+  |isShowBorder         |boolean     |按钮是否有0.5px边框                    |否               |false                                   |true,false
+  |backgroundColor      |String      |按钮背景颜色                           |否               |#FFF                                    |16进制颜色代码
+  |borderColor          |String      |按钮边框颜色                          |当有边框是必填      |无                                      |16进制颜色代码
+  |countText            |String      |按钮文案                              |是                |无                                     |任意   
+  |color                |String      |按钮颜色                              |否               |#000                                    |16进制颜色代码
   
 
 
