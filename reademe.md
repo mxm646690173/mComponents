@@ -95,6 +95,8 @@ name => 收件人姓名   tel=>联系电话   map_address=> 地图定位地址  
 
 @nextList  加载下一页内容事件
 
+@select  点击当前地址事件
+
 ***
 
 ## search-page 组件

@@ -2,7 +2,7 @@
 	<list-view id="addressList" scroll-y class="bg-f7 flex-1" lower-threshold @scrolltolower="nextList">
 		<cell class="margin-bottom-10">
 			<view class="bg-fff width-100p">
-				<view class="height-61 flex-1 margin-left-14 margin-right-14 bottom-line disflex-v-center">
+				<view class="height-61 flex-1 margin-left-14 margin-right-14 bottom-line disflex-v-center" @click="select">
 					<img src="../../image/icon-052.png" alt="" class="width-29 height-29">
 					<view class="flex-1 margin-left-10 ">
 						<text class="fz13 font-r">{{'收货人：' + item.name + ' ' +item.tel}}</text>
@@ -39,6 +39,10 @@ export default {
 		}
 	},
 	methods: {
+		select:function(e){
+			let index = e.index;
+			this.fire('select',index);
+		},
 		nextList:function(){
 			this.fire('nextList');
 		},
