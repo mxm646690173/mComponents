@@ -58,15 +58,26 @@ rightText 右侧箭头左边的文字,不填为不显示
 import goodsCell from '../../components/m-only-cpt/goods-cell.stml'
 ~~~
 
-### 备注
 list => 传入的对象  => 包含 数据列表,列表下方待加载文字  (可针对不同的项目,进行修改组件内的字段)
 
-                             ↑数据列表字段 
+### list 属性
+  |属性                 |类型        |说明                       |是否必填         |默认值                                  |值
+  :---:|:--:|:---:|:---:|:---:|:---:
+  |name                |String     |标题                        |是               |无                                    | 任意文字
+  |img_url             |String     |图片                        |否               |无                                    | 任意文字
+  |sku_price           |String     |显示价格                     |否               |无                                    | 任意
+  |sku_original_price  |String     |划线价                       |否               |无                                    | 任意
+  |is_free_shipping    |Number     |显示包邮字段                  |否               |0                                    | 0,1
+  |goods_tag_name      |String     |商品标签                      |否               |无                                   | [...]
+  |service_tag_names   |arr        |服务标签(数组,显示为 第一 个)   |否               |无                                  | [...]
 
-标题:name   图片:img_url   显示价格:sku_price  划线价:sku_original_price  显示包邮字段 :is_free_shipping
+### 非 list 属性
+  |属性                 |类型        |说明                       |是否必填         |默认值                                  |值
+  :---:|:--:|:---:|:---:|:---:|:---:
+  |bottomText          |String     |上滑加载文字                 |否               |无                                    | 任意文字
 
-商品标签:goods_tag_name    服务标签:service_tag_names(数组,显示为 第一 个)
 
+### 备注
 
 @nextList => 加载下一页的事件
 
@@ -92,12 +103,19 @@ list => 传入的对象  => 包含 数据列表,列表下方待加载文字  (�
 import AddressCell from '../../components/m-only-cpt/address-cell.stml'
 ~~~
 
-### 备注
-
-
 list => 传入数组 => 包含字段:
 
 name => 收件人姓名   tel=>联系电话   map_address=> 地图定位地址  is_defaulted=> 是否为默认地址
+
+### list属性
+  |属性                 |类型        |说明                       |是否必填         |默认值                                  |值
+  :---:|:--:|:---:|:---:|:---:|:---:
+  |name                |String     |收件人姓名                   |是              |无                                    | 任意文字
+  |tel                 |String     |收件人电话                   |是              |无                                    | 任意文字
+  |map_address         |String     |地图定位地址                  |是              |无                                    | 任意文字
+  |is_defaulted        |String     |是否为默认地址                |是              |无                                    | 任意文字
+
+### 备注
 
 @setDefault 设置为默认地址事件 => 只能取到 index => e.detail
 
@@ -133,14 +151,17 @@ import SearchPage from "../../components/m-only-cpt/search-page.stml";
   属性|类型|说明|是否必填|默认值|值
   :---:|:--:|:---:|:---:|:---:|:---:
   lists|arr|传入已经整理好的数组|是|无|[...]
-  cellType_1|String|预搜索关键词列表1|是|无                                      
+  cellType_1|String|预搜索关键词列表标签|是|无                                      
   cellType_2|String|预搜索关键词分割栏|否|无                                      
-  cellType_3|String|预搜索关键词列表2|否|无                                      
+  cellType_3|String|预搜索关键词列表2标签|否|无                                      
   cellType_2_text|String|预搜索关键词列表分隔栏文字|否|无
   cellType_2_img|String|预搜索关键词分割栏图标|是|无|不填会导致样式有问题
   iconWidth|Number|图标宽|否|10px|支持5-20px
   iconHeight|Number|图标高|否|10px|支持5-20px
   cellHeight|Number|每一行的高度|否|48px|支持20px-70px
+
+  ### 备注
+cellType_1,cellType_3 参照 list-view 下的 cellTypeKey,也就是  cell 下的 cellType 属性
 
 ###  事件
 cellTypeClick1   单击预搜索关键词列表1事件
