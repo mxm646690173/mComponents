@@ -6,8 +6,9 @@
 				@click={this.props['onclick']}>
 				<text class="font-r fz13">{{this.props['title']}}</text>
 				<view class="flex-1"></view>
-				<text class="fz13 c999">{{this.props['rightText']}}</text>
-				<img v-show="showRightArrow" src="./image/rightArrow.png" alt="" class="width-13 height-13 margin-left-5">
+				<text class="fz13 " :style="`color:${this.props['r-text-color'] || '#999'}`">{{this.props['rightText']}}</text>
+				<img v-show="showRightArrow" src="../../image/icon-108.png" alt=""
+					class="width-13 height-13 margin-left-5">
 			</view>
 		</view>
 	</view>
