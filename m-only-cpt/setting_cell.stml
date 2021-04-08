@@ -7,8 +7,7 @@
 				<text class="font-r fz13">{{this.props['title']}}</text>
 				<view class="flex-1"></view>
 				<text class="fz13 c999">{{this.props['rightText']}}</text>
-				<img v-show="hideRightArrow" src="./image/rightArrow.png" alt=""
-					class="width-13 height-13 margin-left-5">
+				<img v-show="showRightArrow" src="./image/rightArrow.png" alt="" class="width-13 height-13 margin-left-5">
 			</view>
 		</view>
 	</view>
@@ -19,12 +18,12 @@ export default {
 	name: 'setting-cell',
 	data() {
 		return {
-			hideRightArrow: false
+			showRightArrow: true
 		}
 	},
 	installed() {
 		if (this.props['hideRightArrow']) {
-			this.data.hideRightArrow = true
+			this.data.showRightArrow = false
 		}
 	}
 }

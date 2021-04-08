@@ -58,8 +58,11 @@ import goodsCell from '../../components/m-only-cpt/goods-cell.stml'
 
 ### 备注
 list => 传入的对象  => 包含 数据列表,列表下方待加载文字  (可针对不同的项目,进行修改组件内的字段)
+
                              ↑数据列表字段 
+
 标题:name   图片:img_url   显示价格:sku_price  划线价:sku_original_price  显示包邮字段 :is_free_shipping
+
 商品标签:goods_tag_name    服务标签:service_tag_names(数组,显示为 第一 个)
 
 
