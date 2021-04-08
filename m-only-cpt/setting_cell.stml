@@ -2,11 +2,13 @@
 	<view class="width-100p">
 		<view class="width-100p bg-fff">
 			<view
-				class="margin-left-14 margin-right-14 bottom-line height-48 disflex-v-center flex-1 disflex-h-space-between" @click={this.props['onclick']}>
+				class="margin-left-14 margin-right-14 bottom-line height-48 disflex-v-center flex-1 disflex-h-space-between"
+				@click={this.props['onclick']}>
 				<text class="font-r fz13">{{this.props['title']}}</text>
-        <view class="flex-1"></view>
-        <text class="fz13 c999">{{this.props['rightText']}}</text>
-				<img src="../../image/icon-108.png" alt="" class="width-13 height-13 margin-left-5">
+				<view class="flex-1"></view>
+				<text class="fz13 c999">{{this.props['rightText']}}</text>
+				<img v-show="hideRightArrow" src="./image/rightArrow.png" alt=""
+					class="width-13 height-13 margin-left-5">
 			</view>
 		</view>
 	</view>
@@ -15,15 +17,25 @@
 <script>
 export default {
 	name: 'setting-cell',
+	data() {
+		return {
+			hideRightArrow: false
+		}
+	},
+	installed() {
+		if (this.props['hideRightArrow']) {
+			this.data.hideRightArrow = true
+		}
+	}
 }
 </script>
 
 <style scoped>
-.c999{
-  color: #999;
+.c999 {
+	color: #999;
 }
-.margin-left-5{
-  margin-left: 5px;
+.margin-left-5 {
+	margin-left: 5px;
 }
 .height-13 {
 	height: 13px;

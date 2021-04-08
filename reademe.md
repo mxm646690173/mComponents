@@ -26,6 +26,13 @@
 import settingCell from '../../components/m-only-cpt/setting_cell.stml'
 ~~~
 
+### 属性
+  |属性                 |类型        |说明                               |是否必填         |默认值                                  |值
+  :---:|:--:|:---:|:---:|:---:|:---:
+  |title                |String     |左侧标题文字                        |是               |无                                    | 任意文字
+  |rightText            |String     |右侧标题文字                        |否               |无                                    | 任意文字
+  |hideRightArrow       |boolean    |是否隐藏右侧箭头                     |否               |false                                 | true,false
+
 ### 备注
 
 rightText 右侧箭头左边的文字,不填为不显示
