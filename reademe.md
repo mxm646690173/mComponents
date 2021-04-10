@@ -32,7 +32,6 @@ import settingCell from '../../components/m-only-cpt/setting_cell.stml'
   |title                |String     |左侧标题文字                        |是               |无                                    | 任意文字
   |rightText            |String     |右侧标题文字                        |否               |无                                    | 任意文字
   |hideRightArrow       |boolean    |是否隐藏右侧箭头                     |否               |false                                 | true,false
-  |hideRightArrow       |boolean    |是否隐藏右侧箭头                     |否               |false                                 | true,false
   |r-text-color         |String     |右侧文字颜色                        |否               |#999                                   | 8 位颜色代码
 
 ### 备注
@@ -50,15 +49,20 @@ rightText 右侧箭头左边的文字,不填为不显示
 ### 用法
 
 ~~~html
-<goods-cell :list="list" @nextList="nextList()" @openGoods="openGoods" />
+<goods-cell :list="obj" @nextList="nextList()" @openGoods="openGoods" />
 ~~~
+
+:list => obj  => 包含 数据列表,列表下方待加载文字  (可针对不同的项目,进行修改组件内的字段)
 
 ### 引入
 ~~~js
 import goodsCell from '../../components/m-only-cpt/goods-cell.stml'
 ~~~
 
-list => 传入的对象  => 包含 数据列表,列表下方待加载文字  (可针对不同的项目,进行修改组件内的字段)
+obj={
+  list:[],
+  bottomText
+}
 
 ### list 属性
   |属性                 |类型        |说明                       |是否必填         |默认值                                  |值
