@@ -2,6 +2,13 @@
 
 ***
 
+[TOC]
+
+***
+
+***
+# cell 类组件
+
 ## settingCell 组件 
 
 如果该组件功能无法满足,可使用官方的 act 组件中的 cell
@@ -39,6 +46,9 @@ import settingCell from '../../components/m-only-cpt/setting_cell.stml'
 rightText 右侧箭头左边的文字,不填为不显示
 
 ***
+
+***
+# 商品列表类组件
 
 ## goods-cell 组件
 
@@ -89,6 +99,9 @@ obj={
 
 ***
 
+***
+# 地址类组件
+
 ## address-cell 组件
 
 ### 样式
@@ -133,6 +146,9 @@ name => 收件人姓名   tel=>联系电话   map_address=> 地图定位地址  
 
 ***
 
+***
+# 预搜索类组件
+
 ## search-page 组件
 
 ### 样式
@@ -174,6 +190,9 @@ cellTypeClick2   单击预搜索关键词列表2事件
 
 ***
 
+***
+# 轮播图类组件
+
 ## home-swiper 组件
 
 ### 样式
@@ -205,6 +224,9 @@ import homeSwiper from "../../components/m-only-cpt/home-swiper.stml";
 qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 swiper 的 分页器
 
 ***
+
+***
+# 倒计时按钮类组件
 
 ## count-botton 组件
 
