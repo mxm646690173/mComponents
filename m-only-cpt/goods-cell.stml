@@ -1,6 +1,6 @@
 <template name="goods-cell">
 	<view class="page">
-		<list-view id="goods_lists" class="flex-1 margin-left-14 margin-right-25"scroll-y lower-threshold @scrolltolower="nextList()">
+		<list-view id="goods_lists" class="flex-1 margin-left-14 margin-right-25" scroll-y lower-threshold @scrolltolower="nextList()">
 			<cell>
 				<view class="flex-h margin-top-14 width-100p" @click="openGoods">
 					<image src={item.img_url} mode="aspectFill" class="width-90 height-90 border-radius-10"></image>
@@ -15,7 +15,7 @@
 								<text
 									class="margin-left-5 c999 fz10 del-font-style margin-top-1">{item.sku_original_price}</text>
 							</view>
-							<view class={(item.isNoLabel ? 'height-0' :'margin-top-6') + ' flex-h flex-warp' }>
+							<view class={(item.isNoLabel ? 'height-0' :'margin-top-6') + ' flex-h flex-wrap' }>
 								<view class={item.is_free_shipping==1 ? 'freeBox-style margin-right-5' :'width-0 height-0 padding-0  margin-0'}>
 									<text class="fz10 cFF5301">包邮</text>
 								</view>
@@ -71,6 +71,111 @@ export default {
 </script>
 
 <style scoped>
+.margin-top-20{
+	margin-top: 20px;
+}
+.flex-center {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.height-20{
+	height: 20px;
+}
+.margin-0{
+	margin: 0;
+}
+.padding-0{
+	padding: 0;
+}
+.width-0{
+	width: 0;
+}
+.margin-right-5{
+	margin-right: 5px;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.margin-top-6{
+	margin-top: 6px;
+}
+.height-0{
+	height: 0;
+}
+.margin-top-1{
+	margin-top: 1px;
+}
+.fz10{
+	font-size: 10px;
+}
+.margin-left-5{
+	margin-left: 5px;
+}
+.fz15{
+	font-size: 15px;
+}
+.font-m {
+    font-family: PingFangSC-Medium;
+}
+.margin-top-3{
+	margin-top: 3px;
+}
+.fz12{
+	font-size: 12px;
+}
+.disflex-v-center {
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.font-r {
+    font-family: PingFangSC-Regular;
+}
+.height-40{
+	height: 40px;
+}
+.ellipsis-n {
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: hidden;
+}
+.fz13{
+	font-size: 13px;
+}
+.disflex-h-space-between {
+    justify-content: space-between;
+}
+.margin-left-10{
+	margin-left: 10px;
+}
+.border-radius-10{
+	border-radius: 10px;
+}
+.height-90{
+	height: 90px;
+}
+.width-90{
+	width: 90px;
+}
+.width-100p{
+	width: 100%;
+}
+.margin-top-14{
+	margin-top: 14px;
+}
+.flex-h {
+    flex-flow: row;
+}
+.margin-right-25{
+	margin-right: 25px;
+}
+.margin-left-14{
+	margin-left: 14px;
+}
+.flex-1{
+	flex:1;
+}
 .c666{
 	color: #666;
 }
