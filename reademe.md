@@ -1,12 +1,6 @@
 # 请把 m-only-cpt 文件夹放入项目的components文件夹内
 
 ***
-
-[TOC]
-
-***
-
-***
 # cell 类组件
 
 ## settingCell 组件 
@@ -44,8 +38,6 @@ import settingCell from '../../components/m-only-cpt/setting_cell.stml'
 ### 备注
 
 rightText 右侧箭头左边的文字,不填为不显示
-
-***
 
 ***
 # 商品列表类组件
@@ -98,8 +90,6 @@ obj={
 @openGoods => 点击item 事件
 
 ***
-
-***
 # 地址类组件
 
 ## address-cell 组件
@@ -146,7 +136,6 @@ name => 收件人姓名   tel=>联系电话   map_address=> 地图定位地址  
 
 ***
 
-***
 # 预搜索类组件
 
 ## search-page 组件
@@ -190,7 +179,6 @@ cellTypeClick2   单击预搜索关键词列表2事件
 
 ***
 
-***
 # 轮播图类组件
 
 ## home-swiper 组件
@@ -222,8 +210,6 @@ import homeSwiper from "../../components/m-only-cpt/home-swiper.stml";
 
 ###  事件
 qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 swiper 的 分页器
-
-***
 
 ***
 # 倒计时按钮类组件
@@ -270,5 +256,3 @@ startCount   用来让你向自己的服务器请求发送短信验证码操作
 qcCountStart    用来让启动倒计时
 
 qcCountEnd      用来终止倒计时
-
-***
