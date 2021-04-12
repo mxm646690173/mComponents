@@ -281,6 +281,8 @@ qcCountEnd      用来终止倒计时
 
 整个页面的样式代码,只需要 例 中的这段代码即可,功能性操作在 script 中完成
 
+图片案例为 打开一个 frame ,设置背景色为半透明,之后,在 frame 中添加 例 中的样式代码即可
+
 ### 例:
 ~~~html
 	<template name='pay_frm'>
