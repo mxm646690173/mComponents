@@ -256,3 +256,48 @@ startCount   用来让你向自己的服务器请求发送短信验证码操作
 qcCountStart    用来让启动倒计时
 
 qcCountEnd      用来终止倒计时
+
+***
+# 输入密码页类组件
+
+## pay-password-page 组件
+
+### 样式
+
+![](image/pay_password_page.png)
+
+
+### props 属性
+  |属性                 |类型        |说明                               |是否必填         |默认值                                  |值
+  :---:|:--:|:---:|:---:|:---:|:---:
+  |title                |String       |标题                         |否               |无                                      |文字
+  |left-text            |String       |左侧按钮文字                   |是               |无                                      |文字
+  | right-text          |String       |右侧按钮文字                   |是               |无                                      |文字
+
+  
+### 备注
+
+切记!! 该组件 适用于 弹窗式的密码页,自带页面宽高百分百,无需手动添加其他操作
+
+整个页面的样式代码,只需要 例 中的这段代码即可,功能性操作在 script 中完成
+
+### 例:
+~~~html
+	<template name='pay_frm'>
+		<pay-password-page title="请输入支付密码" left-text="忘记密码?" right-text="确定" @closeFrame="back()" @left-button="forget()" @right-button="confirm()" />
+  </template>
+~~~
+
+### 引入
+
+~~~js
+import payPasswordPage from '../../components/m-only-cpt/pay_password_page.stml'
+~~~
+
+###  接收事件
+
+closeFrame      用来关闭密码页
+
+left-button     点击左侧按钮触发
+
+right-button    点击右侧按钮触发
