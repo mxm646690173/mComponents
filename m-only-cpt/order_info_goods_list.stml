@@ -1,0 +1,59 @@
+<template>
+	<view class="bottom-line width-100p disflex-v-center" :style="'height:' + (this.props['height'] || 102) + 'px'">
+		<img :src="this.props['img']" alt="" :style="this.imgStyle()">
+		<view class="flex-1 disflex-v-center margin-left-10" :style="'height:' + (this.props['img-size'] || 78) + 'px'">
+			<view class="flex-1 disflex-h-space-between height-100p" style="width:0">
+				<view class="">
+					<text class="font-r ellipsis"
+						:style=" 'font-size:' + (this.props['title-size'] || 13) + 'px' ">{{this.props['title']}}</text>
+				</view>
+				<view class="">
+					<text class="font-r" :style="this.skuStyle()">
+						{{this.props['sku-name']}}
+					</text>
+				</view>
+				<view class="disflex">
+					<text class="font-m" :style="this.unit()">{{this.props['price-unit']}}</text>
+					<text class="font-m" :style="this.priceStyle()">{{this.props['price']}}</text>
+				</view>
+			</view>
+			<text class="c999 fz12 font-r" :style="this.numStyle()">X{{this.props['num']}}</text>
+		</view>
+	</view>
+</template>
+
+<script>
+export default {
+	name: 'order-info-goods-list',
+	data() {
+		return {
+
+		}
+	},
+	methods: {
+		numStyle() {
+			let str = `font-size:${this.props['num-size'] || 12}px;color:${this.props['num-color'] || '#999'}`;
+			return str
+		},
+		priceStyle() {
+			let str = `font-size:${this.props['price-size'] || 15}px;color:${this.props['price-color'] || '#ff5301'};line-height:${this.props['price-size'] || 15}`;
+			return str
+		},
+		unit() {
+			let str = `font-size:${this.props['price-unit-size'] || 12}px;color:${this.props['price-color'] || '#ff5301'};line-height:${this.props['price-unit-size'] || 12}`;
+			return str
+		},
+		skuStyle() {
+			let str = `font-size:${this.props['sku-size'] || 13}px;color:${this.props['sku-color'] || '#999'}`;
+			return str
+		},
+		imgStyle() {
+			let str = `width:${this.props['img-size'] || 78}px;height:${this.props['img-size'] || 78}px;border-radius:${this.props['img-radius'] || 8}px`;
+			return str
+		}
+	},
+}
+</script>
+
+<style>
+</style>

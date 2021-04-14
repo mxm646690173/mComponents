@@ -303,3 +303,50 @@ closeFrame      用来关闭密码页
 left-button     点击左侧按钮触发
 
 right-button    点击右侧按钮触发
+
+
+***
+# 订单详情页-商品列表类组件
+
+## order-info-goods-list 组件
+
+### 样式
+
+![](image/order-info-goods-list.png)
+
+
+### props 属性
+  |属性                 |类型        |说明                               |是否必填         |默认值               
+  :---:|:--:|:---:|:---:|:---:
+  |height               |String       |单个商品高度                   |否               |102px                           
+  |img                  |String       |图片路径                      |是               |                             
+  |img-size             |String       |图片尺寸                      |否               |78px                             
+  |img-radius           |String       |图片圆角                      |否               |8px                                   
+  |title                |String       |标题文字                      |是               |无
+  |title-size           |String       |标题文字大小                   |否               |13px             
+  |sku-name             |String       |规格                          |是               |无                                  
+  |sku-size             |String       |规格文字大小                   |否               |13px                                 
+  |sku-color            |String       |规格文字颜色                   |否               |#999                              
+  |price                |String       |价格                          |是               |无                                  
+  |price-unit           |String       |价格单位                      |是                |无                                  
+  |price-size           |String       |价格文字大小                   |否               |15px                                 
+  |price-color          |String       |价格文字颜色                   |否               |#ff5301                                 
+  |price-unit-size      |String       |价格单位文字大小                |否               |12px                                   
+  |num-color            |String       |数量文字颜色                   |否               |#999                                
+  |num-size             |String       |数量文字大小                   |否               |12px                                
+  |num                  |String       |数量                          |是               |无                                
+
+  
+### 备注
+
+
+### 例:
+~~~html
+		<order-info-goods-list title="商品标题最多显示一行商品示一行商品示一行商品多显示一行商品示一行商品示一" num="1" sku-name="白色/36码" price="19800" price-unit="Ks" img="../../image/temp-001.jpg" height='102' img-size="78" img-radius="8" title-size="13" sku-size="13" sku-color="#999" price-size="15" price-unit-size="12" price-color='#999' num-color="#999" num-size="12"  />
+~~~
+
+### 引入
+
+~~~js
+import orderInfoGoodsList from '../../components/m-only-cpt/order_info_goods_list.stml'
+~~~
