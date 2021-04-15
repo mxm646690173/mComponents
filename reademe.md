@@ -33,7 +33,7 @@ import settingCell from '../../components/m-only-cpt/setting_cell.stml'
   |title                |String     |左侧标题文字                        |是               |无                                    | 任意文字
   |rightText            |String     |右侧标题文字                        |否               |无                                    | 任意文字
   |hideRightArrow       |boolean    |是否隐藏右侧箭头                     |否               |false                                 | true,false
-  |r-text-color         |String     |右侧文字颜色                        |否               |#999                                   | 8 位颜色代码
+  |r-text-color         |String     |右侧文字颜色                        |否               |#999                                   | 6 位颜色代码
 
 ### 备注
 
