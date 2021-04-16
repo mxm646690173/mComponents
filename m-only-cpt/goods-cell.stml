@@ -30,12 +30,12 @@
 					</view>
 				</view>
 			</cell>
-		</list-view>
-			<list-footer>
+						<list-footer>
 				<view class="height-20 width-100p bg-fff flex-center margin-top-20">
 					<text class="height-20 fz10 c666">{{this.props['bottomText']}}</text>
 				</view>
 			</list-footer>
+		</list-view>
 	</view>
 </template>
 <script>
