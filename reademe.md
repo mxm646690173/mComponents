@@ -51,20 +51,13 @@ rightText 右侧箭头左边的文字,不填为不显示
 ### 用法
 
 ~~~html
-<goods-cell :list="obj" @nextList="nextList()" @openGoods="openGoods" />
+<goods-cell :list="list" :bottomText='' @nextList="nextList()" @openGoods="openGoods" />
 ~~~
-
-:list => obj  => 包含 数据列表,列表下方待加载文字  (可针对不同的项目,进行修改组件内的字段)
 
 ### 引入
 ~~~js
 import goodsCell from '../../components/m-only-cpt/goods-cell.stml'
 ~~~
-
-obj={
-  list:[],
-  bottomText
-}
 
 ### list 属性
   |属性                 |类型        |说明                       |是否必填         |默认值                                  |值
@@ -75,7 +68,7 @@ obj={
   |sku_original_price  |String     |划线价                       |否               |无                                    | 任意
   |is_free_shipping    |Number     |显示包邮字段                  |否               |0                                    | 0,1
   |goods_tag_name      |String     |商品标签                      |否               |无                                   | [...]
-  |service_tag_names   |arr        |服务标签(数组,显示为 第一 个)   |否               |无                                  | [...]
+  |service_tag_names   |arr        |服务标签(数组,显示为 第一 个)   |否               |无                                   | [...]
 
 ### 非 list 属性
   |属性                 |类型        |说明                       |是否必填         |默认值                                  |值
