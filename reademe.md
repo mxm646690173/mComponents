@@ -278,9 +278,9 @@ qcCountEnd      用来终止倒计时
 
 ### 例:
 ~~~html
-	<template name='pay_frm'>
-		<pay-password-page title="请输入支付密码" left-text="忘记密码?" right-text="确定" @closeFrame="back()" @left-button="forget()" @right-button="confirm()" />
-  </template>
+<template name='pay_frm'>
+	<pay-password-page title="请输入支付密码" left-text="忘记密码?" right-text="确定" @closeFrame="back()" @left-button="forget()" @right-button="confirm()" />
+</template>
 ~~~
 
 ### 引入
@@ -335,7 +335,7 @@ right-button    点击右侧按钮触发
 
 ### 例:
 ~~~html
-		<order-info-goods-list title="商品标题最多显示一行商品示一行商品示一行商品多显示一行商品示一行商品示一" num="1" sku-name="白色/36码" price="19800" price-unit="Ks" img="../../image/temp-001.jpg" height='102' img-size="78" img-radius="8" title-size="13" sku-size="13" sku-color="#999" price-size="15" price-unit-size="12" price-color='#999' num-color="#999" num-size="12"  />
+<order-info-goods-list title="商品标题最多显示一行商品示一行商品示一行商品多显示一行商品示一行商品示一" num="1" sku-name="白色/36码" price="19800" price-unit="Ks" img="../../image/temp-001.jpg" height='102' img-size="78" img-radius="8" title-size="13" sku-size="13" sku-color="#999" price-size="15" price-unit-size="12" price-color='#999' num-color="#999" num-size="12"  />
 ~~~
 
 ### 引入
@@ -376,7 +376,7 @@ import orderInfoGoodsList from '../../components/m-only-cpt/order_info_goods_lis
 
 ### 例:
 ~~~html
-				<message-cell-style-1 image='../../image/icon-047.png' title='配送信息' next-title='点此处查看相关信息' time='15:31' height='42' image-size='38' title-size='13' next-title-size='12' time-size='12' title-color='' next-title-color='' time-color='' :show-bottom-line='true' />
+<message-cell-style-1 image='../../image/icon-047.png' title='配送信息' next-title='点此处查看相关信息' time='15:31' height='42' image-size='38' title-size='13' next-title-size='12' time-size='12' title-color='' next-title-color='' time-color='' :show-bottom-line='true' />
 ~~~
 
 ### 引入
