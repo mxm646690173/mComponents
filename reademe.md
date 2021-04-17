@@ -15,17 +15,19 @@
 
 高 48  带下边框线, 离左右各 14px 两端对齐 水平居中
 
-### 用法
-
-~~~html
-<setting-cell title="意见反馈" :rightText="version" onclick="test()" />
-~~~
 
 ### 引入
 
 ~~~js
 import settingCell from '../../components/m-only-cpt/setting_cell.stml'
 ~~~
+
+### 用法
+
+~~~html
+<setting-cell title="意见反馈" :rightText="version" onclick="test()" />
+~~~
+
 
 ### 属性
   |属性                 |类型        |说明                               |是否必填         |默认值                                  |值
@@ -48,16 +50,18 @@ rightText 右侧箭头左边的文字,不填为不显示
 
 ![](image/goods-cell.png)
 
+
+### 引入
+~~~js
+import goodsCell from '../../components/m-only-cpt/goods-cell.stml'
+~~~
+
 ### 用法
 
 ~~~html
 <goods-cell :list="list" :bottomText='' @nextList="nextList()" @openGoods="openGoods" />
 ~~~
 
-### 引入
-~~~js
-import goodsCell from '../../components/m-only-cpt/goods-cell.stml'
-~~~
 
 ### list 属性
   |属性                 |类型        |说明                       |是否必填         |默认值                                  |值
@@ -91,17 +95,19 @@ import goodsCell from '../../components/m-only-cpt/goods-cell.stml'
 
 ![](image/address-cell.png)
 
-### 用法
-
-~~~html
-<address-cell :list="list" @setDefault="setDefault" @edit="edit" @del="del" @nextList="addPage()" />
-~~~
 
 ### 引入
 
 ~~~js
 import AddressCell from '../../components/m-only-cpt/address-cell.stml'
 ~~~
+
+### 用法
+
+~~~html
+<address-cell :list="list" @setDefault="setDefault" @edit="edit" @del="del" @nextList="addPage()" />
+~~~
+
 
 list => 传入数组 => 包含字段:
 
@@ -137,17 +143,19 @@ name => 收件人姓名   tel=>联系电话   map_address=> 地图定位地址  
 
 ![](image/search-page.png)
 
+### 引入
+
+~~~js
+import SearchPage from "../../components/m-only-cpt/search-page.stml";
+~~~
+
 ### 用法
 
 ~~~html
 <search-page :lists="this.data.lists" cellType_1='goods' cellType_2="cateName" cellType_3="cate"cellType_2_text="分类" :cellHeight="48" cellType_2_img="../../image/o-001.png" oncellTypeClick1="searh_goods"oncellTypeClick2="search_cate" :iconWidth="10" :iconHeight="10" />
 ~~~
 
-### 引入
 
-~~~js
-import SearchPage from "../../components/m-only-cpt/search-page.stml";
-~~~
 
 ### props 属性
   属性|类型|说明|是否必填|默认值|值
@@ -180,6 +188,21 @@ cellTypeClick2   单击预搜索关键词列表2事件
 
 ![](image/home-swiper.png)
 
+
+### 引入
+
+~~~js
+import homeSwiper from "../../components/m-only-cpt/home-swiper.stml";
+~~~
+
+
+### 用法
+
+~~~html
+<home-swiper :lists="goodsImg" @qcSwiperIndex="getSwiperIndex" :autoplay={false} mode="scaleToFill" :interval={5000} />
+~~~
+
+
 ### props 属性
   |属性                 |类型        |说明                               |是否必填         |默认值                                  |值
   :---:|:--:|:---:|:---:|:---:|:---:
@@ -189,17 +212,6 @@ cellTypeClick2   单击预搜索关键词列表2事件
   |interval             |Number       |图片自动切换时间间隔                   |否               |5000                                    |毫秒
 
 
-### 用法
-
-~~~html
-<home-swiper :lists="goodsImg" @qcSwiperIndex="getSwiperIndex" :autoplay={false} mode="scaleToFill" :interval={5000} />
-~~~
-
-### 引入
-
-~~~js
-import homeSwiper from "../../components/m-only-cpt/home-swiper.stml";
-~~~
 
 ###  事件
 qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 swiper 的 分页器
@@ -212,6 +224,19 @@ qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 
 ### 样式
 
 ![](image/count-botton.png)
+
+
+### 引入
+
+~~~js
+import countBotton from "../../components/m-only-cpt/count-botton.stml";
+~~~
+
+### 用法
+~~~html
+<count-botton :countTime="60" padding="14" :height="29" :borderRadius="4" :fontSize="13" :isShowBorder={true} backgroundColor="#fff" borderColor="#ff5301" countText="获取验证码" color="#ff5301" onstartCount="this.startCount" />
+~~~
+
 
 ### props 属性
   |属性                 |类型        |说明                               |是否必填         |默认值                                  |值
@@ -228,17 +253,6 @@ qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 
   |color                |String      |按钮颜色                              |否               |#000                                    |16进制颜色代码
   
 
-
-### 用法
-~~~html
-<count-botton :countTime="60" padding="14" :height="29" :borderRadius="4" :fontSize="13" :isShowBorder={true} backgroundColor="#fff" borderColor="#ff5301" countText="获取验证码" color="#ff5301" onstartCount="this.startCount" />
-~~~
-
-### 引入
-
-~~~js
-import countBotton from "../../components/m-only-cpt/count-botton.stml";
-~~~
 
 ###  点击发送事件
 
@@ -260,12 +274,11 @@ qcCountEnd      用来终止倒计时
 ![](image/pay_password_page.png)
 
 
-### props 属性
-  |属性                 |类型        |说明                               |是否必填         |默认值                                  |值
-  :---:|:--:|:---:|:---:|:---:|:---:
-  |title                |String       |标题                         |否               |无                                      |文字
-  |left-text            |String       |左侧按钮文字                   |是               |无                                      |文字
-  | right-text          |String       |右侧按钮文字                   |是               |无                                      |文字
+### 引入
+
+~~~js
+import payPasswordPage from '../../components/m-only-cpt/pay_password_page.stml'
+~~~
 
   
 ### 备注
@@ -276,6 +289,8 @@ qcCountEnd      用来终止倒计时
 
 图片案例为 打开一个 frame ,设置背景色为半透明,之后,在 frame 中添加 例 中的样式代码即可
 
+
+
 ### 例:
 ~~~html
 <template name='pay_frm'>
@@ -283,11 +298,15 @@ qcCountEnd      用来终止倒计时
 </template>
 ~~~
 
-### 引入
 
-~~~js
-import payPasswordPage from '../../components/m-only-cpt/pay_password_page.stml'
-~~~
+
+### props 属性
+  |属性                 |类型        |说明                               |是否必填         |默认值                                  |值
+  :---:|:--:|:---:|:---:|:---:|:---:
+  |title                |String       |标题                         |否               |无                                      |文字
+  |left-text            |String       |左侧按钮文字                   |是               |无                                      |文字
+  | right-text          |String       |右侧按钮文字                   |是               |无                                      |文字
+
 
 ###  接收事件
 
@@ -306,6 +325,19 @@ right-button    点击右侧按钮触发
 ### 样式
 
 ![](image/order-info-goods-list.png)
+
+### 引入
+
+~~~js
+import orderInfoGoodsList from '../../components/m-only-cpt/order_info_goods_list.stml'
+~~~
+
+
+### 用法:
+~~~html
+<order-info-goods-list title="商品标题最多显示一行商品示一行商品示一行商品多显示一行商品示一行商品示一" num="1" sku-name="白色/36码" price="19800" price-unit="Ks" img="../../image/temp-001.jpg" height='102' img-size="78" img-radius="8" title-size="13" sku-size="13" sku-color="#999" price-size="15" price-unit-size="12" price-color='#999' num-color="#999" num-size="12"  />
+~~~
+
 
 
 ### props 属性
@@ -333,16 +365,6 @@ right-button    点击右侧按钮触发
 ### 备注
 
 
-### 例:
-~~~html
-<order-info-goods-list title="商品标题最多显示一行商品示一行商品示一行商品多显示一行商品示一行商品示一" num="1" sku-name="白色/36码" price="19800" price-unit="Ks" img="../../image/temp-001.jpg" height='102' img-size="78" img-radius="8" title-size="13" sku-size="13" sku-color="#999" price-size="15" price-unit-size="12" price-color='#999' num-color="#999" num-size="12"  />
-~~~
-
-### 引入
-
-~~~js
-import orderInfoGoodsList from '../../components/m-only-cpt/order_info_goods_list.stml'
-~~~
 
 ***
 # 消息列表类组件
@@ -352,6 +374,17 @@ import orderInfoGoodsList from '../../components/m-only-cpt/order_info_goods_lis
 ### 样式
 
 ![](image/message-cell-style-1.png)
+
+### 引入
+
+~~~js
+import messageCellStyle1 from '../../components/m-only-cpt/message-cell-style-1.stml'
+~~~
+
+### 用法:
+~~~html
+<message-cell-style-1 image='../../image/icon-047.png' title='配送信息' next-title='点此处查看相关信息' time='15:31' height='42' image-size='38' title-size='13' next-title-size='12' time-size='12' title-color='' next-title-color='' time-color='' :show-bottom-line='true' />
+~~~
 
 
 ### props 属性
@@ -373,14 +406,8 @@ import orderInfoGoodsList from '../../components/m-only-cpt/order_info_goods_lis
   
 ### 备注
 
+本组件暂未支持 角标,后续可能会支持
 
-### 例:
-~~~html
-<message-cell-style-1 image='../../image/icon-047.png' title='配送信息' next-title='点此处查看相关信息' time='15:31' height='42' image-size='38' title-size='13' next-title-size='12' time-size='12' title-color='' next-title-color='' time-color='' :show-bottom-line='true' />
-~~~
 
-### 引入
 
-~~~js
-import messageCellStyle1 from '../../components/m-only-cpt/message-cell-style-1.stml'
-~~~
+
