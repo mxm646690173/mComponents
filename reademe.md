@@ -343,3 +343,44 @@ right-button    点击右侧按钮触发
 ~~~js
 import orderInfoGoodsList from '../../components/m-only-cpt/order_info_goods_list.stml'
 ~~~
+
+***
+# 消息列表类组件
+
+## message-cell-style-1 组件
+
+### 样式
+
+![](image/message-cell-style-1.png)
+
+
+### props 属性
+  |属性                 |类型        |说明                               |是否必填         |默认值               
+  :---:|:--:|:---:|:---:|:---:
+  |height               |String       |单个cell高度                  |否               |63px                           
+  |image                |String       |图片路径                      |是               |                             
+  |image-size           |String       |图片尺寸                      |否               |38px
+  |title                |String       |标题文字                      |是               |无
+  |title-size           |String       |标题文字大小                   |否               |13px             
+  |title-color          |String       |标题文字颜色                   |否               |#000             
+  |next-title           |String       |副标题文字                     |否               |无
+  |next-title-size      |String       |副标题文字大小                  |否               |12px             
+  |next-title-color     |String       |副标题文字颜色                  |否               |#999            
+  |time                 |String       |时间文字                      |否               |无
+  |time-size            |String       |时间文字大小                   |否               |12px             
+  |time-color           |String       |时间文字颜色                   |否               |#999            
+
+  
+### 备注
+
+
+### 例:
+~~~html
+				<message-cell-style-1 image='../../image/icon-047.png' title='配送信息' next-title='点此处查看相关信息' time='15:31' height='42' image-size='38' title-size='13' next-title-size='12' time-size='12' title-color='' next-title-color='' time-color='' :show-bottom-line='true' />
+~~~
+
+### 引入
+
+~~~js
+import messageCellStyle1 from '../../components/m-only-cpt/message-cell-style-1.stml'
+~~~
