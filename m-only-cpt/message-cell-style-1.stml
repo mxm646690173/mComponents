@@ -1,5 +1,5 @@
 <template name='message-cell-style-1'>
-	<view class={"width-100p message-disflex-v-center "  + (this.props['show-bottom-line'] ? 'message-bottom-line' :'') } :style="`height:${this.props['height'] || 42}px`">
+	<view class={"width-100p message-disflex-v-center "  + (this.props['show-bottom-line'] ? 'message-bottom-line' :'') } :style="`height:${this.props['height'] || 63}px`" @click='click()'>
 		<img :src=" this.props['image']" alt="" :style="`width:${this.props['image-size'] || 38}px;height:${this.props['image-size'] || 38}px`">
 		<view class="flex-1 message-disflex message-margin-left-10" :style=" `height:${this.props['image-size'] || 38}px` ">
 			<view class="flex-1 message-disflex-h-space-between height-100p">
@@ -17,6 +17,11 @@ export default {
 	data() {
 		return {
 
+		}
+	},
+	methods: {
+		click(){
+			this.fire('click')
 		}
 	},
 }
