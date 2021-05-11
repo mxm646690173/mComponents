@@ -234,35 +234,28 @@ import countBotton from "../../components/m-only-cpt/count-botton.stml";
 
 ### 用法
 ~~~html
-<count-botton :countTime="60" padding="14" :height="29" :borderRadius="4" :fontSize="13" :isShowBorder={true} backgroundColor="#fff" borderColor="#ff5301" countText="获取验证码" color="#ff5301" onstartCount="this.startCount" />
+<count-botton :countTime="60" padding="14" :height="29" :borderRadius="4" :fontSize="13"
+				:isShowBorder="true" backgroundColor="#fff" borderColor="#ff5301" countText="获取验证码" color="#ff5301"
+				:startCount="true" :stop-count="true" @button-click="start()"  />
 ~~~
 
 
 ### props 属性
   |属性                 |类型        |说明                               |是否必填         |默认值                                  |值
   :---:|:--:|:---:|:---:|:---:|:---:
-  |countTime            |Number      |传入倒计时时间                         |是               |无                                      |0~999
-  |padding              |Number      |按钮距左距右距离                       |是               |默认avm button padding宽度                |任意
-  |height               |Number      |按钮高度                              |是               |无                                      |20px-40px
-  |borderRadius         |Number      |按钮圆角                              |否               |无                                      |1px-50px
-  |fontSize             |Number      |按钮字体大小                           |否               |系统字体大小                              |5px-20px
-  |isShowBorder         |boolean     |按钮是否有0.5px边框                    |否               |false                                   |true,false
-  |backgroundColor      |String      |按钮背景颜色                           |否               |#FFF                                    |16进制颜色代码
-  |borderColor          |String      |按钮边框颜色                          |当有边框是必填      |无                                      |16进制颜色代码
-  |countText            |String      |按钮文案                              |是                |无                                     |任意   
-  |color                |String      |按钮颜色                              |否               |#000                                    |16进制颜色代码
-  
+  |countTime            |Number      |传入倒计时时间                      |是               |无                                    |0~999
+  |padding              |Number      |按钮距左距右距离                    |否               |10                                    |px
+  |height               |Number      |按钮高度                           |否               |20                                    |px
+  |borderRadius         |Number      |按钮圆角                           |否               |5                                     |px
+  |fontSize             |Number      |按钮字体大小                        |否               |13                                    |px
+  |isShowBorder         |boolean     |按钮是否有0.5px边框                 |否               |false                                 |true,false
+  |backgroundColor      |String      |按钮背景颜色                        |否               |#FFF                                  |16进制颜色代码
+  |borderColor          |String      |按钮边框颜色                        |当有边框是必填     |#000                                 |16进制颜色代码
+  |countText            |String      |按钮文案                            |是              |无                                    |任意   
+  |color                |String      |按钮文字颜色                         |否              |#000                                 |16进制颜色代码
+  |startCount           |boolean     |为true则开始倒计时                   |是              |无                                    |true,false
+  |stop-count           |boolean     |为false则暂停倒计时                  |是              |无                                   |true,false
 
-
-###  点击发送事件
-
-startCount   用来让你向自己的服务器请求发送短信验证码操作
-
-###  接收事件
-
-qcCountStart    用来让启动倒计时
-
-qcCountEnd      用来终止倒计时
 
 ***
 # 输入密码页类组件
