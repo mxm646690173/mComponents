@@ -36,7 +36,7 @@ import settingCell from '../../components/m-only-cpt/setting_cell.stml'
   |rightText            |String     |右侧标题文字                        |否               |无                                    | 任意文字
   |hideRightArrow       |boolean    |是否隐藏右侧箭头                     |否               |false                                 | true,false
   |r-text-color         |String     |右侧文字颜色                        |否               |#999                                   | 6 位颜色代码
-
+ 
 ### 备注
 
 rightText 右侧箭头左边的文字,不填为不显示
