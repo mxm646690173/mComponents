@@ -226,6 +226,9 @@ qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 
 ![](image/count-botton.png)
 
 
+### 说明
+该倒计时组件有极高的自定义程度, 自动宽百分百,需要多少宽度,请在组件外的view 标签内设置,请不要再组件外的view 标签设置高度
+
 ### 引入
 
 ~~~js
@@ -234,9 +237,9 @@ import countBotton from "../../components/m-only-cpt/count-botton.stml";
 
 ### 用法
 ~~~html
-<count-botton :countTime="60" padding="14" :height="29" :borderRadius="4" :fontSize="13"
-				:isShowBorder="true" backgroundColor="#fff" borderColor="#ff5301" countText="获取验证码" color="#ff5301"
-				:startCount="true" :stop-count="true" @button-click="start()"  />
+<count-botton :countTime="60" :height="29" :borderRadius="4" :fontSize="13"
+:isShowBorder="true" backgroundColor="#fff" borderColor="#ff5301" countText="获取验证码" color="#ff5301"
+:startCount="countType" :stop-count="stopCount" start-text="秒后重发" @button-click="start()"  />
 ~~~
 
 
@@ -244,7 +247,6 @@ import countBotton from "../../components/m-only-cpt/count-botton.stml";
   |属性                 |类型        |说明                               |是否必填         |默认值                                  |值
   :---:|:--:|:---:|:---:|:---:|:---:
   |countTime            |Number      |传入倒计时时间                      |是               |无                                    |0~999
-  |padding              |Number      |按钮距左距右距离                    |否               |10                                    |px
   |height               |Number      |按钮高度                           |否               |20                                    |px
   |borderRadius         |Number      |按钮圆角                           |否               |5                                     |px
   |fontSize             |Number      |按钮字体大小                        |否               |13                                    |px
@@ -252,6 +254,7 @@ import countBotton from "../../components/m-only-cpt/count-botton.stml";
   |backgroundColor      |String      |按钮背景颜色                        |否               |#FFF                                  |16进制颜色代码
   |borderColor          |String      |按钮边框颜色                        |当有边框是必填     |#000                                 |16进制颜色代码
   |countText            |String      |按钮文案                            |是              |无                                    |任意   
+  |start-text           |String      |开始倒计时之后的文案                  |否              |无                                    |任意   
   |color                |String      |按钮文字颜色                         |否              |#000                                 |16进制颜色代码
   |startCount           |boolean     |为true则开始倒计时                   |是              |无                                    |true,false
   |stop-count           |boolean     |为false则暂停倒计时                  |是              |无                                   |true,false

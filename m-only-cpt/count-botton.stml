@@ -13,17 +13,17 @@ export default {
 	},
 	data() {
 		return {
-			sec: 0,
 			text: '',
 			type: false,
-			timer: ''
+			timer: '',
+			addOacity: false
 		};
 	},
 	computed: {
 		pagePName() {
 			if (this.props['startCount'] && !this.data.type) {
 				this.startCount();
-				return this.props['countTime']
+				return this.props['countTime'] + this.props['start-text'];
 			} else {
 				return this.props['countText']
 			}
@@ -33,19 +33,23 @@ export default {
 				return true
 			} else {
 				return false
+
 			}
 		},
 	},
 	methods: {
 		qichenCountButtonClick() {
-			this.data.type = false;
-			this.fire('button-click');
+			if (this.data.text == '' || this.data.text == this.props['countText']) {
+				this.data.type = false;
+				this.data.addOacity = true;
+				this.fire('button-click');
+			}
 		},
 		startCount() {
 			let time = this.props['countTime'];
 			this.data.type = true;
 			const _run = () => {
-				this.data.text = time;
+				this.data.text = time + this.props['start-text'];
 				if (this.prase) {
 					clearTimeout(this.data.timer);
 				} else {
@@ -55,6 +59,7 @@ export default {
 							_run();
 						}, 1000);
 					} else {
+						this.data.addOacity = false;
 						this.data.text = this.props['countText'];
 					}
 				}
@@ -64,9 +69,12 @@ export default {
 		},
 		buttonStyle: function () {
 			let str = '';
-			str = `padding-left:${this.props['padding'] || 10}px;padding-right:${this.props['padding'] || 10}px;height:${this.props['height'] || 20}px;font-size:${this.props['fontSize'] || 13}px;line-height:${this.props['fontSize'] || 13}px;background-color:${this.props['backgroundColor'] || '#fff'};color:${this.props['color'] || '#000'};`
+			str = `padding-left:0;padding-right:0;height:${this.props['height'] || 20}px;font-size:${this.props['fontSize'] || 13}px;line-height:${this.props['fontSize'] || 13}px;background-color:${this.props['backgroundColor'] || '#fff'};color:${this.props['color'] || '#000'};`
 			if (this.props['isShowBorder']) {
 				str = `${str}border-radius:${this.props['borderRadius'] || 5}px;border-color:${this.props['borderColor'] || '#000'};`
+			}
+			if (this.data.addOacity) {
+				str = `${str}opacity:0.5;`
 			}
 			return str
 		}
