@@ -21,9 +21,11 @@ export default {
 	},
 	computed: {
 		pagePName() {
+			// console.log(`页面:${api.winName}; 行数: [ 24 ]; 内容: ${this.props['startCount']}`)
+			// console.log(`页面:${api.winName}; 行数: [ 25 ]; 内容: ${this.data.type}`)
 			if (this.props['startCount'] && !this.data.type) {
 				this.startCount();
-				return this.props['countTime'] + this.props['start-text'];
+				return this.props['countTime'] + this.props['start-text'] ? this.props['start-text'] : '';
 			} else {
 				return this.props['countText']
 			}
@@ -43,17 +45,23 @@ export default {
 				this.data.type = false;
 				this.data.addOacity = true;
 				this.fire('button-click');
+				for (let i = 0; i < 30; i++) {
+					setTimeout(() => {
+						this.update();
+					}, 100);
+				}
 			}
 		},
 		startCount() {
 			let time = this.props['countTime'];
+			this.data.text = time + this.props['start-text'];
 			this.data.type = true;
 			const _run = () => {
 				this.data.text = time + this.props['start-text'];
 				if (this.prase) {
 					clearTimeout(this.data.timer);
 				} else {
-					if (time > 1) {
+					if (time >= 1) {
 						time--;
 						this.data.timer = setTimeout(() => {
 							_run();
@@ -61,6 +69,7 @@ export default {
 					} else {
 						this.data.addOacity = false;
 						this.data.text = this.props['countText'];
+						this.update();
 					}
 				}
 
@@ -75,6 +84,8 @@ export default {
 			}
 			if (this.data.addOacity) {
 				str = `${str}opacity:0.5;`
+			} else {
+				str = `${str}opacity:1;`
 			}
 			return str
 		}
