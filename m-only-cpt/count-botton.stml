@@ -1,7 +1,7 @@
 <template name='count-botton'>
 	<view class="">
 		<button :style="this.buttonStyle()" onclick='qichenCountButtonClick'>
-			{{ type ? text : pagePName}}
+			{{ type ? text : defShowText}}
 		</button>
 	</view>
 </template>
@@ -20,22 +20,12 @@ export default {
 		};
 	},
 	computed: {
-		pagePName() {
-			// console.log(`页面:${api.winName}; 行数: [ 24 ]; 内容: ${this.props['startCount']}`)
-			// console.log(`页面:${api.winName}; 行数: [ 25 ]; 内容: ${this.data.type}`)
-			if (this.props['startCount'] && !this.data.type) {
+		defShowText() {
+			if (this.props['start-count'] == 'success' && !this.data.type) {
 				this.startCount();
-				return this.props['countTime'] + this.props['start-text'] ? this.props['start-text'] : '';
+				return this.props['countTime'] + this.props['start-text'];
 			} else {
 				return this.props['countText']
-			}
-		},
-		prase() {
-			if (this.props['stop-count']) {
-				return true
-			} else {
-				return false
-
 			}
 		},
 	},
@@ -45,11 +35,17 @@ export default {
 				this.data.type = false;
 				this.data.addOacity = true;
 				this.fire('button-click');
-				for (let i = 0; i < 30; i++) {
-					setTimeout(() => {
-						this.update();
-					}, 100);
-				}
+				// 手动添加循环监听 startCount 状态,每100毫秒进行1次检查
+				// 由于是需要进行开始倒计时,所以,没有获取到需要的状态,就需要持续的进行
+				this.addListenerType()
+			}
+		},
+		addListenerType() {
+			if (!this.props['start-count']) {
+				setTimeout(() => {
+					this.update();
+					this.addListenerType()
+				}, 100);
 			}
 		},
 		startCount() {
@@ -58,7 +54,7 @@ export default {
 			this.data.type = true;
 			const _run = () => {
 				this.data.text = time + this.props['start-text'];
-				if (this.prase) {
+				if (this.props['start-count'] == 'stop' || this.props['start-count'] == 'reset') {
 					clearTimeout(this.data.timer);
 				} else {
 					if (time >= 1) {
@@ -72,7 +68,11 @@ export default {
 						this.update();
 					}
 				}
-
+				if (this.props['start-count'] == 'reset') {
+					this.data.addOacity = false;
+					this.data.text = this.props['countText'];
+					this.update();
+				}
 			}
 			_run()
 		},
