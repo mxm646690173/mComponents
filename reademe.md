@@ -449,4 +449,5 @@ import networkError from '../../components/m-only-cpt/network-error.stml'
 
 ### 事件
   |事件名                      |是否必填           |使用
+    :---:|:--:|:---:
   |refresh                    |是                |@refresh="放入你需要刷新的方法名"
