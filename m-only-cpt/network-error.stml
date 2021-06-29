@@ -1,0 +1,118 @@
+<template name='network-error'>
+	<view class="network-error-page">
+		<view class="network-error-style network-error-center">
+			<image :src="img_url" alt="" :style="this.noInternetImageStyle()" />
+			<text :style="this.textStyle()">{{this.props['placeholder-text']}}</text>
+			<button class="network-error-top-20 network-error-clear-style" :style="this.buttonStyle()" @click="toref()">
+				{{this.props['button-text'] ? this.props['button-text'] : '刷新' }}
+			</button>
+		</view>
+	</view>
+</template>
+<script>
+export default {
+	name: 'network-error',
+	install() {
+		this.data.img_url = this.props['placeholder-img'] ? this.props['placeholder-img'] : '../../components/m-only-cpt/image/no-internet.png';
+	},
+	data() {
+		return {
+			img_url: ''
+		}
+	},
+	methods: {
+		toref() {
+			this.fire('refresh')
+		},
+		buttonStyle() {
+			let str = 'background:';
+			if (this.props['button-bg-color']) {
+				str = `${str}${this.props['button-bg-color']}`
+			} else {
+				str = `${str}#fff`
+			};
+			if (this.props['button-text-color']) {
+				str = `${str};color:${this.props['button-text-color']}`
+			} else {
+				str = `${str};color:#000`
+			}
+			if (this.props['button-text-size']) {
+				str = `${str};font-size:${this.props['button-text-size']}px`
+			} else {
+				str = `${str};font-size:15px`
+			}
+			if (this.props['button-width']) {
+				str = `${str};width:${this.props['button-width']}px`
+			} else {
+				str = `${str};width:60px`
+			}
+			if (this.props['button-height']) {
+				str = `${str};height:${this.props['button-height']}px`
+			} else {
+				str = `${str};height:20px`
+			}
+			if (this.props['button-border-radius']) {
+				str = `${str};border-radius:${this.props['button-border-radius']}px`
+			} else {
+				str = `${str};border-radius:0px`
+			}
+			return str;
+		},
+		textStyle() {
+			var str = "color:";
+			if (this.props['placeholder-text-color']) {
+				str = `color:${this.props['placeholder-text-color']};`
+			} else {
+				str = 'color:#000;'
+			};
+			if (this.props['placeholder-text-size']) {
+				str = `${str}font-size:${this.props['placeholder-text-size']}px;`
+			} else {
+				str = `${str}font-size:15px`
+			}
+			return str;
+		},
+		noInternetImageStyle() {
+			var str = "width:";
+			if (this.props['placeholder-img-width']) {
+				str = `width:${this.props['placeholder-img-width']}px;`;
+			} else {
+				str = "width:100px;";
+			};
+			if (this.props['placeholder-img-height']) {
+				str = `${str}height:${this.props['placeholder-img-height']}px;`;
+			} else {
+				str = `${str}height:100px;`;
+			};
+			return str;
+		},
+	}
+}
+</script>
+<style scoped>
+.network-error-clear-style {
+	border: 0;
+	padding: 0;
+}
+.network-error-top-20 {
+	margin-top: 20px;
+}
+.network-error-center {
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+.network-error-style {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 99;
+}
+.network-error-page {
+	flex: 1;
+	width: 100%;
+	position: relative;
+}
+</style>
