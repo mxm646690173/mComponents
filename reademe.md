@@ -257,6 +257,7 @@ import countBotton from "../../components/m-only-cpt/count-botton.stml";
   |start-text           |String      |开始倒计时之后的文案                        |否               |无                      |任意   
   |color                |String      |按钮文字颜色                               |否               |#000                   |16进制颜色代码
   |start-count          |String      |倒计时按钮状态,只能传入值中的3个状态,其他无效   |是               |无                      |success,stop,reset
+  |button-click         |fun         |点击组件按钮后的事件                        |是               |无                      |需要执行的方法名
 
 
 ***
@@ -403,6 +404,49 @@ import messageCellStyle1 from '../../components/m-only-cpt/message-cell-style-1.
 
 本组件暂未支持 角标,后续可能会支持
 
+***
+# 网络错误占位组件
+
+## network-error 组件
+
+### 样式
+
+![](image/network-error.png)
+
+### 引入
+
+~~~js
+import networkError from '../../components/m-only-cpt/network-error.stml'
+~~~
+
+### 备注
+该组件用于显示app 网络错误 状态,除了 顶部 navbar, 自动占满剩余空间
+请把该组件放置于和 navbar 同级 元素下
+### 用法:
+~~~html
+<network-error placeholder-img="" placeholder-img-width="200" placeholder-img-height="150" placeholder-text="测试测试测试测试"
+  placeholder-text-color="#999" placeholder-text-size="15" button-text="快刷新" button-bg-color="#fc7200" button-text-color="#fff" button-text-size="13"
+  button-width="100" button-height="30" button-border-radius="15" @refresh="start()" />
+~~~
 
 
+### props 属性
+  |属性                        |类型        |说明                               |是否必填         |默认值               
+  :---:|:--:|:---:|:---:|:---:
+  |placeholder-img            |string     |网络错误展示图地址                    |否              |默认无网络图片
+  |placeholder-img-width      |number     |网络错误展示图宽                      |是             |100
+  |placeholder-img-height     |number     |网络错误展示图高                      |是             |100
+  |placeholder-text           |string     |网络错误展示图下方文字                 |否             |无
+  |placeholder-text-color     |string     |网络错误展示图下方文字颜色              |否             |#000
+  |placeholder-text-size      |number     |网络错误展示图下方文字大小              |否             |15
+  |button-text                |string     |按钮内的文案内容                      |是             |无
+  |button-bg-color            |string     |按钮背景颜色                         |是             |#fff
+  |button-text-color          |string     |按钮内的文字颜色                      |是             |#000
+  |button-text-size           |Number     |按钮内的文字大小                      |是             |15
+  |button-width               |Number     |按钮宽                              |是             |60
+  |button-height              |Number     |按钮高                              |是             |20
+  |button-border-radius       |Number     |按钮圆角                             |否             |0
 
+### 事件
+  |事件名                      |是否必填           |使用
+  |refresh                    |是                |@refresh="放入你需要刷新的方法名"
