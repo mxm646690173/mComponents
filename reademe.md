@@ -195,26 +195,37 @@ cellTypeClick2   单击预搜索关键词列表2事件
 import homeSwiper from "../../components/m-only-cpt/home-swiper.stml";
 ~~~
 
+### 说明
+
+该组件,自动宽度百分百撑满,所以需要 特殊宽度的,请在 组件外,包一层 view, 设置好需要的宽度即可,支持 分页器的 隐藏, 自定义,默认 样式
 
 ### 用法
 
 ~~~html
-<home-swiper :lists="goodsImg" @qcSwiperIndex="getSwiperIndex" :autoplay={false} mode="scaleToFill" :interval={5000} />
+<home-swiper :lists="goodsImg" @qcSwiperIndex="getSwiperIndex" :autoplay='false' :height="140" :border-radius="40" :indicator="hidden" :default-indicator="" :custom-indicator=""/>
 ~~~
 
 
-### props 属性
-  |属性                 |类型        |说明                               |是否必填         |默认值                                  |值
+### props 属性(分页器样式请参考apicloud文档中的swiper组件)
+  |属性                 |类型          |说明                               |是否必填         |默认值        |值
   :---:|:--:|:---:|:---:|:---:|:---:
-  |lists                |arr          |传入已经整理好的数组                  |是               |无                                      |[...]
-  |autoplay             |boolean      |轮播图是否自动播放                    |否               |false                                   |false,true
-  |mode                 |String       |图片裁剪、缩放的方式(同image标签)       |否              |scaleToFill                             |image标签内的mode
-  |interval             |Number       |图片自动切换时间间隔                   |否               |5000                                    |毫秒
+  |lists                |arr          |传入以图片地址构成的数组               |是               |无         |[...]
+  |autoplay             |boolean      |轮播图是否自动播放                    |否               |false      |false,true
+  |height               |number       |轮播图高度                           |是               |无         |
+  |border-radius        |number       |轮播图圆角                           |是               |无         |
+  |indicator            |string       |分页器状态                           |是               |无         |default,custom,hidden
+  |default-indicator    |obj          |默认指示器样式(indicator为default时必填)  |否            |无         |{indicator-color:,indicator-active-color:,}
+  |custom-indicator     |obj          |自定义指示器样式(indicator为custom时必填)  |否            |无         |{active:{可直接输入css属性},normal:{可直接输入css属性}}
+
 
 
 
 ###  事件
 qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 swiper 的 分页器
+
+
+###  接收事件
+pageUpdate  用于刷新swiper组件, 如果碰到页面刷新需要重置swiper, 请在获取完成新数据之后发送该事件
 
 ***
 # 倒计时按钮类组件

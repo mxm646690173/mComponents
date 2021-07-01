@@ -1,88 +1,130 @@
 <template name='MySwiper'>
-    <view class="flex-center swiper-box flex">
-        <swiper id="homeSwiper" class="bgfff swiper-style" autoplay onchange={this.onchange}>
-            <swiper-item>
-                <image src={item} mode="aspectFill" class="width-100p height-100p" @click='openDetail()'></image>
-            </swiper-item>
-        </swiper>
-        <view class="indicator">
-            <view v-for="(item,index) in this.props.lists" class={'indicator-item '+(index==this.data.current?' indicator-item-active':'indicator-item-normal')}></view>
-        </view>
-    </view>
+	<view class="swiper-box" :style="this.swiperStyle()">
+		<swiper id="homeSwiper" class="swiper" :autoplay='this.props["autoplay"]' onchange={this.onchange}
+			:indicator-dots="this.props['indicator'] == 'default'"
+			:indicator-color="this.props['indicator'] == 'default' ? this.props['default-indicator']['indicator-color'] : ''"
+			:indicator-active-color="this.props['indicator'] == 'default' ? this.props['default-indicator']['indicator-active-color'] :''">
+			<swiper-item>
+				<image src={item} mode="aspectFill" class="swiper-img-style" @click='openDetail()' />
+			</swiper-item>
+		</swiper>
+		<view v-if="this.props['indicator'] == 'custom'" class="indicator">
+			<view v-for="(item,index) in this.props.lists" :style="this.indicatorStyle(index)">
+			</view>
+		</view>
+	</view>
 </template>
 <script>
 export default {
-    name: "home-swiper",
-    installed() {
-        var homeSwiper = document.getElementById("homeSwiper");
-        if (this.props.lists.length > 0) {
-            homeSwiper.load({
-            data: this.props.lists
-        });
-        }
-    },
-    data() {
-        return {
-            current: 0
-        };
-    },
-    methods: {
-        onchange(e) {
-            this.data.current = e.detail.current;
-        },
-        openDetail() {
-            var detail = {
-                current: this.data.current
-            };
-            this.fire("clickSwiper", detail);
-        }
-    }
+	name: "home-swiper",
+	installed() {
+		this.getList();
+		api.addEventListener({
+			name: 'pageUpdate'
+		}, (ret) => {
+			this.update();
+			this.initIndicator();
+			this.getList();
+		});
+	},
+	data() {
+		return {
+			current: 0,
+			active_style: '',
+			normal_style: '',
+		};
+	},
+	methods: {
+		initIndicator() {
+			if (this.props['indicator'] == 'custom') {
+				let active_obj = this.props['custom-indicator']['active'];
+				let normal_obj = this.props['custom-indicator']['normal'];
+				let active_key_arr = Object.keys(active_obj); //把对象遍历,并输出对象的key,组成一个数组
+				let normal_key_arr = Object.keys(normal_obj);
+				let active_str = '';
+				for (let i = 0; i < active_key_arr.length; i++) {
+					if (i == 0) {
+						active_str = `${active_key_arr[i]}:${active_obj[active_key_arr[i]]}`
+					} else {
+						active_str = `${active_str};${active_key_arr[i]}:${active_obj[active_key_arr[i]]}`
+					}
+					if (i == active_key_arr.length - 1) {
+						this.data.active_style = active_str;
+					}
+				}
+				let normal_str = '';
+				for (let i = 0; i < normal_key_arr.length; i++) {
+					if (i == 0) {
+						normal_str = `${normal_key_arr[i]}:${normal_obj[normal_key_arr[i]]}`
+					} else {
+						normal_str = `${normal_str};${normal_key_arr[i]}:${normal_obj[normal_key_arr[i]]}`
+					}
+					if (i == normal_key_arr.length - 1) {
+						this.data.normal_style = normal_str;
+					}
+				}
+			}
+		},
+		indicatorStyle(index) {
+			let str;
+			if (index == this.data.current) {
+				str = this.data.active_style
+			} else {
+				str = this.data.normal_style
+			}
+			return str;
+		},
+		swiperStyle() {
+			return `height:${this.props['height'] || 50}px;border-radius:${this.props['border-radius'] || 10}px;overflow:hidden;`
+		},
+		getList() {
+			if (this.props['lists'].length == 0) {
+				setTimeout(() => {
+					this.update();
+					this.getList();
+				}, 100);
+			} else {
+				let homeSwiper = document.getElementById('homeSwiper');
+				homeSwiper.load({
+					data: this.props['lists']
+				})
+			}
+		},
+		onchange(e) {
+			this.data.current = e.detail.current;
+		},
+		openDetail() {
+			var detail = {
+				current: this.data.current
+			};
+			this.fire("clickSwiper", detail);
+		},
+	}
 };
 </script>
-<style src="../../css/app.css" />
 <style scoped>
+.swiper {
+	width: 100%;
+	height: 100%;
+}
+.swiper-img-style {
+	width: 100%;
+	height: 100%;
+}
 .swiper-box {
-    width: 100%;
-    position: relative;
-}
-.swiper-style {
-    /* width: 345px; */
-    width: calc(100% - 30px);
-    margin-left: 15px;
-    margin-right: 15px;
-    height: 140px;
-    border-radius: 20px;
-}
-.bgfff {
-    background: #fff;
+	width: 100%;
+	position: relative;
 }
 .page {
-    height: 100%;
+	height: 100%;
 }
 .indicator {
-    flex-direction: row;
-    justify-content: center;
-    position: absolute;
-    width: 100%;
-    height: 10px;
-    bottom: 8px;
-}
-.indicator-item {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    margin: 3px;
-}
-.indicator-item-normal {
-    background-color: #ddd;
-    border-width: 1px;
-    border-color: #fff;
-    border-radius: 50%;
-}
-.indicator-item-active {
-    background-color: red;
-    border-width: 1px;
-    border-color: red;
-    border-radius: 50%;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	width: 100%;
+	height: 20px;
+	bottom: 4px;
 }
 </style>
