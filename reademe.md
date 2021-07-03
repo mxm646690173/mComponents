@@ -247,8 +247,8 @@ import classification from "../../components/m-only-cpt/classification.stml";
 ### 用法
 
 ~~~html
-			<classification :list="list" icon-size="54" text-size="12" text-color="#000" text-margin="10"
-				icon-radius="27" line-num="4" @change="getIndex" line-spacing="20" @init="getNum" placeholder="" />
+<classification :list="list" icon-size="54" text-size="12" text-color="#000" text-margin="10"
+  icon-radius="27" line-num="4" @change="getIndex" line-spacing="20" @init="getNum" placeholder="" />
 ~~~
 
 ### props 属性(分页器样式请参考apicloud文档中的swiper组件)
