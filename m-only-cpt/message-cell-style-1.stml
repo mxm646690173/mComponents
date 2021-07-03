@@ -1,17 +1,27 @@
 <template name='message-cell-style-1'>
-	<view class={"width-100p message-disflex-v-center "  + (this.props['show-bottom-line'] ? 'message-bottom-line' :'') } :style="`height:${this.props['height'] || 63}px`" @click='click()'>
-		<img :src=" this.props['image']" alt="" :style="`width:${this.props['image-size'] || 38}px;height:${this.props['image-size'] || 38}px`">
-		<view class="flex-1 message-disflex message-margin-left-10" :style=" `height:${this.props['image-size'] || 38}px` ">
+	<view :class="`width-100p message-disflex-v-center ` + (this.props['show-bottom-line'] ? 'message-bottom-line' :'')"
+		:style="
+		`height:${this.props['height'] || 63}px`" @click='click()'>
+		<a-badge :content="this.props['unread']">
+			<img :src="this.props['image']" alt=""
+				:style="`width:${this.props['image-size'] || 38}px;height:${this.props['image-size'] || 38}px`">
+		</a-badge>
+		<view class="flex-1 message-disflex message-margin-left-10"
+			:style=" `height:${this.props['image-size'] || 38}px` ">
 			<view class="flex-1 message-disflex-h-space-between height-100p">
-				<text class="message-font-r" :style=" `font-size:${this.props['title-size'] || 13}px;color:${this.props['title-color'] || '#000'}` ">{{this.props['title']}}</text>
-				<text class="message-font-r" :style=" `font-size:${this.props['next-title-size'] || 12}px;color:${this.props['next-title-color'] || '#999'}` ">{{this.props['next-title']}}</text>
+				<text class="message-font-r"
+					:style=" `font-size:${this.props['title-size'] || 13}px;color:${this.props['title-color'] || '#000'}` ">{{this.props['title']}}</text>
+				<text class="message-font-r"
+					:style=" `font-size:${this.props['next-title-size'] || 12}px;color:${this.props['next-title-color'] || '#999'}` ">{{this.props['next-title']}}</text>
 			</view>
-			<text class="message-font-r" :style=" `font-size:${this.props['time-size'] || 12}px;color:${this.props['time-color'] || '#999'}` ">{{this.props['time']}}</text>
+			<text class="message-font-r"
+				:style=" `font-size:${this.props['time-size'] || 12}px;color:${this.props['time-color'] || '#999'}` ">{{this.props['time']}}</text>
 		</view>
 	</view>
 </template>
 
 <script>
+import ABadge from "../../components/act/a-badge";
 export default {
 	name: 'message-cell-style-1',
 	data() {
@@ -20,7 +30,7 @@ export default {
 		}
 	},
 	methods: {
-		click(){
+		click() {
 			this.fire('click')
 		}
 	},
@@ -28,23 +38,14 @@ export default {
 </script>
 
 <style scoped>
-.message-lh-12 {
-	line-height: 12px;
+.bg-red {
+	background: red;
 }
-.message-lh-13 {
-	line-height: 13px;
+.bg-000 {
+	background: #000;
 }
 .message-font-r {
 	font-family: PingFangSC-Regular;
-}
-.message-fz13 {
-	font-size: 13px;
-}
-.message-fz12 {
-	font-size: 12px;
-}
-.message-c999 {
-	color: #999;
 }
 .height-100p {
 	height: 100%;
@@ -64,24 +65,16 @@ export default {
 .flex-1 {
 	flex: 1;
 }
-.message-height-38 {
-	height: 38px;
-}
-.message-width-38 {
-	width: 38px;
-}
 .message-disflex-v-center {
 	flex-flow: row;
 	align-items: center;
 	justify-content: flex-start;
+	align-content: flex-start;
 }
 .width-100p {
 	width: 100%;
 }
 .message-bottom-line {
 	border-bottom: 0.5px solid #eee;
-}
-.message-height-63 {
-	height: 63px;
 }
 </style>
