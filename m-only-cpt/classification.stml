@@ -1,0 +1,109 @@
+<template name='classification'>
+	<view class="classification-page">
+		<swiper v-if="list.length > 0" class="classification-page" onchange={this.onchange} autoplay='false'>
+			<swiper-item v-for="(_item, index) in list" :key="index" class="classification-page">
+				<view v-for="(_item_1, _index) in _item" :key="_index"
+					class="classification-flex-1 classification-disflex-v classification-disflex-between"
+					:style="this.initLine(_index)">
+					<view v-for="(_item_2, index) in _item_1" :key="index" class=""
+						:style="`width:${this.props['icon-size'] || 50}px;`">
+						<image :src="_item_2.img_url" :placeholder="this.props['placeholder']"
+							:style="`width:${this.props['icon-size'] || 50}px;height:${this.props['icon-size'] || 50}px;border-radius:${this.props['icon-radius']}px`" />
+						<text class="classification-ellipsis classification-text-center clear-default-style"
+							:style="`font-size:${this.props['text-size']||20}px;line-height:${this.props['text-size']||20}px;color:${this.props['text-color']};marginTop:${this.props['text-margin'] || 20}px;width:${this.props['icon-size'] || 50}px;`">{{_item_2.title}}</text>
+					</view>
+				</view>
+			</swiper-item>
+		</swiper>
+	</view>
+</template>
+<script>
+export default {
+	name: 'classification',
+	installed() {
+		// 初始化可用数据列表
+		this.initList();
+	},
+	data() {
+		return {
+			list: []
+		}
+	},
+	methods: {
+		// 初始化间距
+		initLine(index) {
+			if (index == 1) {
+				return `marginTop:${this.props['line-spacing'] || 0}px;`
+			}
+		},
+		onchange(e) {
+			let obj = {
+				current: e.detail.current,
+			}
+			this.fire('change', obj)
+		},
+		initList: function () {
+			if (this.props['list'].length == 0 || this.props['list'] == undefined || this.props['list'] == null) {
+				setTimeout(() => {
+					this.update();
+					this.initList();
+				}, 100);
+			} else {
+				// 开始重构数据列表格式
+				var arr = []; arr1 = []; arr2 = []; list_num = this.props['list'].length;
+				this.props['list'].forEach((item, index) => {
+					arr2.push(item);
+					if (arr2.length == this.props['line-num']) {
+						arr1.push(JSON.parse(JSON.stringify(arr2)));
+						arr2 = [];
+					};
+					if (arr1.length == 2) {
+						arr.push(JSON.parse(JSON.stringify(arr1)));
+						arr1 = [];
+					}
+					if (index == list_num - 1) {
+						if (arr2.length > 0) {
+							arr1.push(JSON.parse(JSON.stringify(arr2)));
+							arr.push(JSON.parse(JSON.stringify(arr1)));
+						}
+						this.data.list = arr;
+						var obj = {
+							swiper_num: this.data.list.length
+						}
+						this.fire('init', obj)
+					}
+				});
+			}
+		},
+	}
+}
+</script>
+<style scoped>
+.clear-default-style {
+	padding: 0;
+}
+.classification-text-center {
+	text-align: center;
+}
+.classification-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.classification-disflex-between {
+	justify-content: space-between;
+}
+.classification-disflex-v {
+	flex-flow: row;
+	align-items: flex-start;
+	justify-content: flex-start;
+	align-content: flex-start;
+}
+.classification-flex-1 {
+	flex: 1;
+}
+.classification-page {
+	width: 100%;
+	height: 100%;
+}
+</style>

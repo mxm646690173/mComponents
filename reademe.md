@@ -227,6 +227,55 @@ qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 
 ###  接收事件
 pageUpdate  用于刷新swiper组件, 如果碰到页面刷新需要重置swiper, 请在获取完成新数据之后发送该事件
 
+
+##  classification  分类分页组件
+
+### 样式
+
+![](image/classification.png)
+
+### 引入
+
+~~~js
+import classification from "../../components/m-only-cpt/classification.stml";
+~~~
+
+### 说明
+
+该组件,自动宽,高百分百撑满,所以需要在组件外,包一层 view, 设置好需要的宽度,需要分页器的,可自己写,组件会返回一个当前所在index,及全部页数,或者调用分页器组件
+
+### 用法
+
+~~~html
+			<classification :list="list" icon-size="54" text-size="12" text-color="#000" text-margin="10"
+				icon-radius="27" line-num="4" @change="getIndex" line-spacing="20" @init="getNum" placeholder="" />
+~~~
+
+### props 属性(分页器样式请参考apicloud文档中的swiper组件)
+  |属性                 |类型          |说明                                      |是否必填         |默认值        |示例值
+  :---:|:--:|:---:|:---:|:---:|:---:
+  |list                |arr           |数据列表(必须包含title,img_url,id三个字段)   |是              |无           |[...]请务必使用一维数组
+  |icon-size           |Number        |图标大小                                  |是              |50           |50
+  |text-size           |Number        |文字大小                                  |是              |20           |20
+  |text-color          |String        |文字颜色                                  |是              |#000         |#000
+  |text-margin         |Number        |文字与icon之间的距离                        |是              |20          |20
+  |icon-radius         |Number        |图标圆角                                  |否              |0            |0
+  |line-num            |number        |一行上的分类的数量                          |是              |无           |3
+  |line-spacing        |number        |两行之间的间距                             |是              |无           |15
+  |placeholder         |String        |占位图路径，在网络图片下载完成之前显示的占位图   |否             |无            |本地路径
+
+
+### 事件
+  |事件名               |说明
+  :---:|:--:
+  |init                |初始化列表成功,将返回 一共分了多少页swiper
+  |change              |滑动swiper将触发, 返回当前激活的swiper 的index
+
+
+
+
+
+
 ***
 # 倒计时按钮类组件
 
