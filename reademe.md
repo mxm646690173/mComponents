@@ -345,7 +345,7 @@ import countBotton from "../../components/m-only-cpt/count-botton.stml";
   |countText            |String      |按钮文案                                  |是               |无                      |任意   
   |start-text           |String      |开始倒计时之后的文案                        |否               |无                      |任意   
   |color                |String      |按钮文字颜色                               |否               |#000                   |16进制颜色代码
-  |start-count          |String      |倒计时按钮状态,只能传入值中的3个状态,其他无效   |是               |无                      |success,stop,reset
+  |start-count          |String      |倒计时按钮状态,只能传入值中的3个状态,其他无效   |是               |无                      |start,stop,reset
   |button-click         |fun         |点击组件按钮后的事件                        |是               |无                      |需要执行的方法名
 
 
@@ -372,7 +372,7 @@ import payPasswordPage from '../../components/m-only-cpt/pay_password_page.stml'
 
 整个页面的样式代码,只需要 例 中的这段代码即可,功能性操作在 script 中完成
 
-图片案例为 打开一个 frame ,设置背景色为半透明,之后,在 frame 中添加 例 中的样式代码即可
+步骤为 打开一个 frame ,设置背景色为半透明,之后,在 frame 中添加 例 中的样式代码即可
 
 
 

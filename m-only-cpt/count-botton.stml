@@ -21,7 +21,7 @@ export default {
 	},
 	computed: {
 		defShowText() {
-			if (this.props['start-count'] == 'success' && !this.data.type) {
+			if (this.props['start-count'] == 'start' && !this.data.type) {
 				this.startCount();
 				return this.props['countTime'] + this.props['start-text'];
 			} else {
