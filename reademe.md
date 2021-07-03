@@ -228,7 +228,7 @@ qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 
 pageUpdate  用于刷新swiper组件, 如果碰到页面刷新需要重置swiper, 请在获取完成新数据之后发送该事件
 
 
-##  classification  分类分页组件
+##  classification  分类分页组件 (本组件不带分页器功能,如需要,请自行添加)
 
 ### 样式
 
@@ -271,10 +271,39 @@ import classification from "../../components/m-only-cpt/classification.stml";
   |init                |初始化列表成功,将返回 一共分了多少页swiper
   |change              |滑动swiper将触发, 返回当前激活的swiper 的index
 
+***
+# 分页器组件 (由于avm 暂时不支持子组件监听父组件props值的改变,故该组件暂停开发,等待后续支持)
+
+##   indicator-custom-bullets   自定义类圆点分页器
+
+### 样式
+![](image/indicator-custom.png)
+
+### 说明
+该组件自动百分百宽度,可通过传入参数,控制 分页器是 居左,居中,居右 显示,可高度自定义样式,要实现页面上中下位置请在组件外包一层view,通过绝对定位实现
+
+### 引入
+
+~~~js
+import indicatorCustomBullets from "../../components/m-only-cpt/indicator-custom-bullets.stml";
+~~~
 
 
+### 用法
+~~~html
+<indicator-custom-bullets :iq="current_num" :active-index="current_active" :default-style="indic_def_style"
+  :active-style="indic_act_style" margin="2" position="left" />
+~~~
 
-
+### props 属性
+  |属性                 |类型        |说明                                      |是否必填         |默认值                   |值
+  :---:|:--:|:---:|:---:|:---:|:---:
+  |iq                  |Number      |初始化分页器数量                            |是              |无                      |8
+  |active-index        |Number      |当前激活的分页器序号                         |是              |0                      |8
+  |default-style       |object      |默认分页器样式                              |是              |无                      |{css样式}
+  |active-style        |object      |激活分页器样式                              |是              |无                      |{css样式}
+  |margin              |Number      |分页器之间的间距                            |是              |无                      |5
+  |position            |String      |分页器所在位置(居左,居中,居右)                |是              |无                      |left,cener,right
 
 ***
 # 倒计时按钮类组件
@@ -431,6 +460,11 @@ import orderInfoGoodsList from '../../components/m-only-cpt/order_info_goods_lis
 
 ![](image/message-cell-style-1.png)
 
+### 说明
+该组件需要与act组件结合使用,若components 下 无 act 文件夹,请先拉取 act组件
+
+该组件自动宽度百分百撑满,需要marginleft及right的,请在组件外包一层view, 自行定义宽度
+
 ### 引入
 
 ~~~js
@@ -439,7 +473,7 @@ import messageCellStyle1 from '../../components/m-only-cpt/message-cell-style-1.
 
 ### 用法:
 ~~~html
-<message-cell-style-1 image='../../image/icon-047.png' title='配送信息' next-title='点此处查看相关信息' time='15:31' height='42' image-size='38' title-size='13' next-title-size='12' time-size='12' title-color='' next-title-color='' time-color='' :show-bottom-line='true' />
+<message-cell-style-1 image='../../image/icon-047.png' title='配送信息' next-title='点此处查看相关信息' time='15:31' height='42' image-size='38' title-size='13' next-title-size='12' time-size='12' title-color='' next-title-color='' time-color='' :show-bottom-line='true' unread="10" />
 ~~~
 
 
@@ -457,12 +491,9 @@ import messageCellStyle1 from '../../components/m-only-cpt/message-cell-style-1.
   |next-title-color     |String       |副标题文字颜色                  |否               |#999            
   |time                 |String       |时间文字                      |否               |无
   |time-size            |String       |时间文字大小                   |否               |12px             
-  |time-color           |String       |时间文字颜色                   |否               |#999            
+  |time-color           |String       |时间文字颜色                   |否               |#999    
+  |unread               |Number       |未读数量                       |否               |无        
 
-  
-### 备注
-
-本组件暂未支持 角标,后续可能会支持
 
 ***
 # 网络错误占位组件
