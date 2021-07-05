@@ -5,16 +5,9 @@
 
 ## settingCell 组件 
 
-如果该组件功能无法满足,可使用官方的 act 组件中的 cell
-
 ### 样式
 
 ![](image/setting-cell.png)
-
-### 属性
-
-高 48  带下边框线, 离左右各 14px 两端对齐 水平居中
-
 
 ### 引入
 
@@ -25,7 +18,7 @@ import settingCell from '../../components/m-only-cpt/setting_cell.stml'
 ### 用法
 
 ~~~html
-<setting-cell title="意见反馈" :rightText="version" onclick="test()" />
+<setting-cell title="意见反馈" :rightText="" height="48" :show-line="true" margin="14" title-size="15" r-text-color="#999" r-icon-size="13" r-text-size="13" onclick="test()" />
 ~~~
 
 
@@ -33,9 +26,15 @@ import settingCell from '../../components/m-only-cpt/setting_cell.stml'
   |属性                 |类型        |说明                               |是否必填         |默认值                                  |值
   :---:|:--:|:---:|:---:|:---:|:---:
   |title                |String     |左侧标题文字                        |是               |无                                    | 任意文字
-  |rightText            |String     |右侧标题文字                        |否               |无                                    | 任意文字
+  |rightText            |String     |右侧文字                           |否               |无                                    | 任意文字
   |hideRightArrow       |boolean    |是否隐藏右侧箭头                     |否               |false                                 | true,false
   |r-text-color         |String     |右侧文字颜色                        |否               |#999                                   | 6 位颜色代码
+  |height               |Number     |cell的高                           |否               |48                                    | 48
+  |show-line            |boolean    |是否显示下划线                       |否               |true                                  | true,false
+  |margin               |Number     |居左居右距离                         |否               |14                                    | 14
+  |title-size           |Number     |左侧标题文字大小                      |否               |13                                    | 13
+  |r-text-size          |Number     |右侧文字大小                         |否               |13                                    | 13
+  |r-icon-size          |Number     |右侧箭头icon大小                     |否               |13                                    | 13
  
 ### 备注
 
