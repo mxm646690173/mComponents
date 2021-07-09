@@ -4,7 +4,7 @@
 			:indicator-dots="this.props['indicator'] == 'default'"
 			:indicator-color="this.props['indicator'] == 'default' ? this.props['default-indicator']['indicator-color'] : ''"
 			:indicator-active-color="this.props['indicator'] == 'default' ? this.props['default-indicator']['indicator-active-color'] :''">
-			<swiper-item>
+			<swiper-item reusable='true'>
 				<image src={item} mode="aspectFill" class="swiper-img-style" @click='openDetail()' />
 			</swiper-item>
 		</swiper>
@@ -19,6 +19,7 @@ export default {
 	name: "home-swiper",
 	installed() {
 		this.getList();
+		this.initIndicator();
 		api.addEventListener({
 			name: 'pageUpdate'
 		}, (ret) => {
