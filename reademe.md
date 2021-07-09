@@ -201,7 +201,7 @@ import homeSwiper from "../../components/m-only-cpt/home-swiper.stml";
 ### 用法
 
 ~~~html
-<home-swiper :lists="goodsImg" :autoplay='false' :height="140" :border-radius="40" :indicator="hidden" :default-indicator="" :custom-indicator=""/>
+<home-swiper :lists="goodsImg" :autoplay='false' :height="140" :border-radius="10" indicator="hidden" :default-indicator="" :custom-indicator=""/>
 ~~~
 
 
