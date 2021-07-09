@@ -201,7 +201,7 @@ import homeSwiper from "../../components/m-only-cpt/home-swiper.stml";
 ### 用法
 
 ~~~html
-<home-swiper :lists="goodsImg" @qcSwiperIndex="getSwiperIndex" :autoplay='false' :height="140" :border-radius="40" :indicator="hidden" :default-indicator="" :custom-indicator=""/>
+<home-swiper :lists="goodsImg" :autoplay='false' :height="140" :border-radius="40" :indicator="hidden" :default-indicator="" :custom-indicator=""/>
 ~~~
 
 
@@ -215,12 +215,6 @@ import homeSwiper from "../../components/m-only-cpt/home-swiper.stml";
   |indicator            |string       |分页器状态                           |是               |无         |default,custom,hidden
   |default-indicator    |obj          |默认指示器样式(indicator为default时必填)  |否            |无         |{indicator-color:,indicator-active-color:,}
   |custom-indicator     |obj          |自定义指示器样式(indicator为custom时必填)  |否            |无         |{active:{可直接输入css属性},normal:{可直接输入css属性}}
-
-
-
-
-###  事件
-qcSwiperIndex swiper滑动后返回的当前图片index; 可用该 index 制作 swiper 的 分页器
 
 
 ###  接收事件
