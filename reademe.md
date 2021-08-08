@@ -240,8 +240,9 @@ import classification from "../../components/m-only-cpt/classification.stml";
 ### 用法
 
 ~~~html
-<classification :list="list" icon-size="54" text-size="12" text-color="#000" text-margin="10"
-  icon-radius="27" line-num="4" @change="getIndex" line-spacing="20" @init="getNum" placeholder="" />
+<classification :list="this.data.info.lists_cate" icon-size="38" text-size="12" text-color="#000"
+  text-margin="5" icon-radius="19" line-num="5" @change="getIndex" line-spacing="13"
+  items-margin="14" @init="getNum" placeholder="" />
 ~~~
 
 ### props 属性(分页器样式请参考apicloud文档中的swiper组件)
@@ -256,6 +257,7 @@ import classification from "../../components/m-only-cpt/classification.stml";
   |line-num            |number        |一行上的分类的数量                          |是              |无           |3
   |line-spacing        |number        |两行之间的间距                             |是              |无           |15
   |placeholder         |String        |占位图路径，在网络图片下载完成之前显示的占位图   |否             |无            |本地路径
+  |items-margin        |Number        |每一个分类的左右间距,可以理解为2个分类间距的一半 |是             |0             |11
 
 
 ### 事件
@@ -263,6 +265,9 @@ import classification from "../../components/m-only-cpt/classification.stml";
   :---:|:--:
   |init                |初始化列表成功,将返回 一共分了多少页swiper
   |change              |滑动swiper将触发, 返回当前激活的swiper 的index
+
+###  接收事件
+pageUpdate  用于刷新swiper组件, 如果碰到页面刷新需要重置swiper, 请在获取完成新数据之后发送该事件,用以解决 刷新后,滑动不正常的情况
 
 ***
 # 分页器组件 (由于avm 暂时不支持子组件监听父组件props值的改变,故该组件暂停开发,等待后续支持)
